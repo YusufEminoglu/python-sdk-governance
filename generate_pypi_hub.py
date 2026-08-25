@@ -1995,6 +1995,10 @@ function initTopology() {{
 const detailModal = document.getElementById("detailModal");
 const modalContent = document.getElementById("modalContent");
 
+function copyText(str) {{
+  navigator.clipboard.writeText(str).then(() => alert("Copied: " + str));
+}}
+
 function openDetailModal(sdkId) {{
   const sdk = SDKS_DATA.find(s => s.id === sdkId);
   if (!sdk) return;
@@ -2007,14 +2011,14 @@ function openDetailModal(sdkId) {{
         sdk.name.substring(0, 2).toUpperCase() +
       '</div>' +
       '<div>' +
-        '<h2 style="font-family:\'Plus Jakarta Sans\',sans-serif;font-size:1.6rem;font-weight:800;color:var(--fg-heading);">' + sdk.name + '</h2>' +
+        '<h2 style="font-family:Plus Jakarta Sans,sans-serif;font-size:1.6rem;font-weight:800;color:var(--fg-heading);">' + sdk.name + '</h2>' +
         '<span style="font-size:0.85rem;color:var(--accent-cyan);font-weight:600;">' + sdk.category + ' &middot; v' + sdk.version + ' &middot; ' + sdk.license + '</span>' +
       '</div>' +
     '</div>' +
     '<p style="font-size:0.96rem;color:var(--fg);margin-bottom:1.4rem;">' + sdk.tagline + '</p>' +
-    '<div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1.1rem;font-family:\'Fira Code\',monospace;font-size:0.86rem;color:var(--accent-emerald);margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">' +
+    '<div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1.1rem;font-family:Fira Code,monospace;font-size:0.86rem;color:var(--accent-emerald);margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">' +
       '<code>' + sdk.pip + '</code>' +
-      '<button class="top-btn" onclick="navigator.clipboard.writeText(\'' + sdk.pip + '\');alert(\'Copied!\')"><i data-lucide="copy" style="width:14px;height:14px;"></i> Copy</button>' +
+      '<button id="modalCopyPipBtn" class="top-btn"><i data-lucide="copy" style="width:14px;height:14px;"></i> Copy</button>' +
     '</div>' +
     '<h4 style="font-size:0.9rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;letter-spacing:0.5px;">Core Capabilities &amp; Algorithm Suite</h4>' +
     '<ul style="list-style:none;margin-bottom:1.8rem;display:flex;flex-direction:column;gap:0.5rem;font-size:0.88rem;color:var(--fg);">' +
@@ -2026,6 +2030,7 @@ function openDetailModal(sdkId) {{
       '<a href="' + sdk.github_url + '" target="_blank" class="top-btn" style="justify-content:center;"><i data-lucide="github" style="width:14px;height:14px;"></i> GitHub Repo</a>' +
     '</div>';
 
+  document.getElementById("modalCopyPipBtn").onclick = () => copyText(sdk.pip);
   detailModal.style.display = "flex";
   lucide.createIcons();
 }}
