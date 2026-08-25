@@ -1844,41 +1844,41 @@ let activeSdk = SDKS_DATA[0];
 function loadReplSnippet(sdkId) {{
   activeSdk = SDKS_DATA.find(s => s.id === sdkId) || SDKS_DATA[0];
   document.getElementById("replEditorCode").innerText = activeSdk.repl_example;
-  document.getElementById("replOutputConsole").innerText = `Loaded template for ${activeSdk.name}.\nClick "Execute Code" to run.`;
+  document.getElementById("replOutputConsole").innerText = "Loaded template for " + activeSdk.name + ".\\nClick \\"Execute Code\\" to run.";
 }}
 
 loadReplSnippet("geoai2analytics");
 
 function runRepl() {{
   const consoleEl = document.getElementById("replOutputConsole");
-  consoleEl.innerHTML = `<span style="color:#06b6d4;">[Running in Python 3.13 Web-VM Sandbox...]</span>\\n`;
+  consoleEl.innerHTML = '<span style="color:#06b6d4;">[Running in Python 3.13 Web-VM Sandbox...]</span>\\n';
 
   setTimeout(() => {{
     if (activeSdk.id === "geoai2analytics") {{
-      consoleEl.innerHTML += `Dataset: 100 Spatial Observations
-Calculating KNN spatial weight matrix (k=5)...
-Computing permutation reference distribution (999 iterations)...
-\\n<span style="color:#34d399;font-weight:bold;">Moran\'s I Index: 0.6421 (p-value: 0.00100)</span>
-Spatial Clustering Detected: High-High Hotspots &amp; Low-Low Coldspots confirmed.`;
+      consoleEl.innerHTML += 'Dataset: 100 Spatial Observations\\n' +
+        'Calculating KNN spatial weight matrix (k=5)...\\n' +
+        'Computing permutation reference distribution (999 iterations)...\\n\\n' +
+        '<span style="color:#34d399;font-weight:bold;">Moran\\'s I Index: 0.6421 (p-value: 0.00100)</span>\\n' +
+        'Spatial Clustering Detected: High-High Hotspots &amp; Low-Low Coldspots confirmed.';
     }} else if (activeSdk.id === "multilayer") {{
-      consoleEl.innerHTML += `Compiling 4 Leaflet 1.9.4 viewports...
-Synchronizing laser crosshair tracking broadcast...
-Injecting Choropleth symbology &amp; Quantile classification...
-\\n<span style="color:#34d399;font-weight:bold;">Success: Standalone HTML Dashboard compiled (34.2 KB).</span>`;
+      consoleEl.innerHTML += 'Compiling 4 Leaflet 1.9.4 viewports...\\n' +
+        'Synchronizing laser crosshair tracking broadcast...\\n' +
+        'Injecting Choropleth symbology &amp; Quantile classification...\\n\\n' +
+        '<span style="color:#34d399;font-weight:bold;">Success: Standalone HTML Dashboard compiled (34.2 KB).</span>';
     }} else if (activeSdk.id === "myface2city") {{
-      consoleEl.innerHTML += `Connecting to OSM Overpass API...
-Downloaded 2,450 road ribbons and 1,820 building polygons.
-Sampling raster luminance matrix across 10-bin Cyberpunk 2077 ramp...
-\\n<span style="color:#34d399;font-weight:bold;">Success: Scalable Vector SVG Poster exported (1920x1080).</span>`;
+      consoleEl.innerHTML += 'Connecting to OSM Overpass API...\\n' +
+        'Downloaded 2,450 road ribbons and 1,820 building polygons.\\n' +
+        'Sampling raster luminance matrix across 10-bin Cyberpunk 2077 ramp...\\n\\n' +
+        '<span style="color:#34d399;font-weight:bold;">Success: Scalable Vector SVG Poster exported (1920x1080).</span>';
     }} else if (activeSdk.id === "ncz2geo" || activeSdk.id === "cad2geo") {{
-      consoleEl.innerHTML += `Decompressing binary block headers...
-Parsing Netcad NCZ entities...
-Classifying PlanGML layer hierarchy and mapping e-Plan styles...
-\\n<span style="color:#34d399;font-weight:bold;">Parsed 42,800 CAD entities in 3.8 ms. Emitted GeoJSON.</span>`;
+      consoleEl.innerHTML += 'Decompressing binary block headers...\\n' +
+        'Parsing Netcad NCZ entities...\\n' +
+        'Classifying PlanGML layer hierarchy and mapping e-Plan styles...\\n\\n' +
+        '<span style="color:#34d399;font-weight:bold;">Parsed 42,800 CAD entities in 3.8 ms. Emitted GeoJSON.</span>';
     }} else {{
-      consoleEl.innerHTML += `Executing ${activeSdk.name} algorithms...
-Optimization completed with 0 errors.
-\\n<span style="color:#34d399;font-weight:bold;">Execution completed successfully (0.14s CPU time).</span>`;
+      consoleEl.innerHTML += 'Executing ' + activeSdk.name + ' algorithms...\\n' +
+        'Optimization completed with 0 errors.\\n\\n' +
+        '<span style="color:#34d399;font-weight:bold;">Execution completed successfully (0.14s CPU time).</span>';
     }}
   }}, 400);
 }}
