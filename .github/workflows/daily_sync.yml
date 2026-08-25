@@ -1,0 +1,59 @@
+name: Daily Python SDK Hub Sync & Deploy
+
+on:
+  schedule:
+    # Runs once a day at 00:00 UTC
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Generate Master Hub Dashboard
+        run: |
+          python generate_pypi_hub.py
+
+      - name: Commit and Push Updated Pages
+        run: |
+          git config user.name "Yusuf Eminoğlu"
+          git config user.email "yusufeminoglu@gmail.com"
+          git add docs/index.html
+          if git diff --staged --quiet; then
+            echo "No changes in SDK Hub detected."
+          else
+            git commit -m "chore(telemetry): auto-sync live SDK metrics & status [skip ci]"
+            git push origin main
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
