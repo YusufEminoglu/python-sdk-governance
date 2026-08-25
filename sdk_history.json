@@ -1,0 +1,80 @@
+[
+  {
+    "date": "2026-08-25",
+    "timestamp": "2026-08-25T23:25:14.995981+00:00",
+    "packages": {
+      "geoai2analytics-sdk": {
+        "version": "0.2.0",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 2
+      },
+      "multilayer-sdk": {
+        "version": "0.1.1",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 2
+      },
+      "myface2city": {
+        "version": "0.1.1",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 2
+      },
+      "NCZ2Geo": {
+        "version": "0.1.0",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 1
+      },
+      "cad2geo": {
+        "version": "0.2.0",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 2
+      },
+      "osm2threejs": {
+        "version": "0.1.0",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 1
+      },
+      "zero2route3d_sdk": {
+        "version": "0.2.0",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 1
+      },
+      "planx_sdk": {
+        "version": "2.17.0",
+        "downloads_month": 0,
+        "downloads_week": 0,
+        "downloads_day": 0,
+        "stars": 0,
+        "forks": 0,
+        "releases": 36
+      }
+    }
+  }
+]
