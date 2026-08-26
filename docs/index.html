@@ -749,24 +749,29 @@ footer a:hover {
     <!-- Live KPI Metrics Strip -->
     <section class="metrics-grid">
       <div class="metric-card">
-        <div class="metric-val">8</div>
-        <div class="metric-label">Headless Packages</div>
+        <div class="metric-val">414+</div>
+        <div class="metric-label">Monthly Downloads (PyPI)</div>
+        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;"><i data-lucide="trending-up" style="width:12px;height:12px;display:inline;"></i> Live Telemetry Active</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">47</div>
-        <div class="metric-label">Releases Tracked</div>
+        <div class="metric-val">19,676+</div>
+        <div class="metric-label">Target 2027 Diffusion (N)</div>
+        <div style="font-size:0.75rem;color:var(--accent-cyan);margin-top:0.3rem;font-weight:600;">Bass Diffusion Model</div>
       </div>
       <div class="metric-card">
         <div class="metric-val">220+</div>
         <div class="metric-label">Spatial &amp; ML Algorithms</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;font-weight:600;">Pure-Python Engines</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">100%</div>
-        <div class="metric-label">Pure-Python Portability</div>
+        <div class="metric-val">8</div>
+        <div class="metric-label">Published Packages</div>
+        <div style="font-size:0.75rem;color:var(--accent-purple);margin-top:0.3rem;font-weight:600;">100% Zero-C Portability</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">99.2%</div>
-        <div class="metric-label">Ecosystem Health Score</div>
+        <div class="metric-val">47</div>
+        <div class="metric-label">Total Builds &amp; Releases</div>
+        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;">99.2% Health Score</div>
       </div>
     </section>
 
@@ -842,11 +847,12 @@ footer a:hover {
             <th onclick="sortTable(0)">Rank</th>
             <th onclick="sortTable(1)">Package &amp; Domain</th>
             <th onclick="sortTable(2)">Version</th>
-            <th onclick="sortTable(3)">Algorithms</th>
-            <th onclick="sortTable(4)">Releases</th>
-            <th onclick="sortTable(5)">Portability</th>
-            <th onclick="sortTable(6)">License</th>
-            <th onclick="sortTable(7)">Health Score</th>
+            <th onclick="sortTable(3)">Monthly DL</th>
+            <th onclick="sortTable(4)">Weekly DL</th>
+            <th onclick="sortTable(5)">Algorithms</th>
+            <th onclick="sortTable(6)">Target 2027</th>
+            <th onclick="sortTable(7)">Releases</th>
+            <th onclick="sortTable(8)">License</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -864,14 +870,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.2.0</span></td>
+            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
+            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">81 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">2,802 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/geoai2analytics-sdk/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -893,14 +897,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.1.1</span></td>
+            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
+            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">14 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">2,147 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/multilayer-sdk/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -922,14 +924,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.1.1</span></td>
+            <td><span style='color:var(--accent-emerald);font-weight:800;'>131</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
+            <td><span style='color:var(--fg);font-weight:700;'>131</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">12 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">2,108 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/MyFace2City/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -951,14 +951,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.1.0</span></td>
+            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
+            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">16 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">3,727 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">1 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-2.0-or-later</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/NCZ2Geo/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -980,14 +978,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.2.0</span></td>
+            <td><span style='color:var(--accent-emerald);font-weight:800;'>135</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
+            <td><span style='color:var(--fg);font-weight:700;'>135</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">15 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">2,496 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-3.0-or-later</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/cad2geo/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -1009,14 +1005,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.1.0</span></td>
+            <td><span style='color:var(--accent-emerald);font-weight:800;'>76</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
+            <td><span style='color:var(--fg);font-weight:700;'>76</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">18 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">1,800 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">1 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/osm2threejs/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -1038,14 +1032,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.2.0</span></td>
+            <td><span style='color:var(--accent-emerald);font-weight:800;'>72</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
+            <td><span style='color:var(--fg);font-weight:700;'>72</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">22 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">1,353 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">1 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-3.0-or-later</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/zero2route3d_sdk/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -1067,14 +1059,12 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v2.17.0</span></td>
+            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
+            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
             <td style="font-weight:700;color:var(--accent-cyan);">42 tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">3,243 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">36 builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-3.0-or-later</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">99.2%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:99.2%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="https://yusufeminoglu.github.io/planx_sdk/" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -1616,9 +1606,9 @@ const SDKS_DATA = [
       "0.1.0",
       "0.2.0"
     ],
-    "downloads_day": 149,
-    "downloads_week": 149,
-    "downloads_month": 149,
+    "downloads_day": 0,
+    "downloads_week": 0,
+    "downloads_month": 0,
     "stars": 0,
     "forks": 0,
     "issues": 0,
@@ -1667,9 +1657,9 @@ const SDKS_DATA = [
       "0.1.0",
       "0.1.1"
     ],
-    "downloads_day": 123,
-    "downloads_week": 123,
-    "downloads_month": 123,
+    "downloads_day": 0,
+    "downloads_week": 0,
+    "downloads_month": 0,
     "stars": 0,
     "forks": 0,
     "issues": 0,
@@ -1815,9 +1805,9 @@ const SDKS_DATA = [
       "0.1.0",
       "0.2.0"
     ],
-    "downloads_day": 0,
-    "downloads_week": 0,
-    "downloads_month": 0,
+    "downloads_day": 135,
+    "downloads_week": 135,
+    "downloads_month": 135,
     "stars": 0,
     "forks": 0,
     "issues": 0,
@@ -1864,9 +1854,9 @@ const SDKS_DATA = [
     "releases_list": [
       "0.1.0"
     ],
-    "downloads_day": 0,
-    "downloads_week": 0,
-    "downloads_month": 0,
+    "downloads_day": 76,
+    "downloads_week": 76,
+    "downloads_month": 76,
     "stars": 0,
     "forks": 0,
     "issues": 0,
@@ -1997,9 +1987,9 @@ const SDKS_DATA = [
       "2.9.1",
       "2.9.2"
     ],
-    "downloads_day": 1,
-    "downloads_week": 115,
-    "downloads_month": 2170,
+    "downloads_day": 0,
+    "downloads_week": 0,
+    "downloads_month": 0,
     "stars": 0,
     "forks": 0,
     "issues": 0,
@@ -2019,17 +2009,21 @@ const themeIcon = document.getElementById("themeIcon");
 function setTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
   localStorage.setItem("pypi_hub_theme", theme);
-  if (theme === "light") {
-    themeIcon.setAttribute("data-lucide", "moon");
-  } else {
-    themeIcon.setAttribute("data-lucide", "sun");
+  if (themeIcon) {
+    if (theme === "light") {
+      themeIcon.setAttribute("data-lucide", "moon");
+    } else {
+      themeIcon.setAttribute("data-lucide", "sun");
+    }
   }
-  lucide.createIcons();
-  updateChartThemes(theme);
+  if (window.lucide) lucide.createIcons();
+  if (typeof updateChartThemes === "function") {
+    updateChartThemes(theme);
+  }
 }
 
 const savedTheme = localStorage.getItem("pypi_hub_theme") || "dark";
-setTheme(savedTheme);
+document.documentElement.setAttribute("data-theme", savedTheme);
 
 themeToggle.addEventListener("click", () => {
   const cur = document.documentElement.getAttribute("data-theme");
@@ -2047,8 +2041,9 @@ tabButtons.forEach(btn => {
 
     btn.classList.add("active");
     const target = btn.getAttribute("data-tab");
-    document.getElementById("pane-" + target).classList.add("active");
-    lucide.createIcons();
+    const pane = document.getElementById("pane-" + target);
+    if (pane) pane.classList.add("active");
+    if (window.lucide) lucide.createIcons();
 
     if (target === "topology") initTopology();
   });
@@ -2207,7 +2202,15 @@ function updateChartThemes(theme) {
   const tc = textColor();
   const gc = gridColor();
 
-  [algoChart, catChart, releaseChart, qualityRadarChart, bassChart].forEach(c => {
+  const charts = [
+    typeof algoChart !== "undefined" ? algoChart : null,
+    typeof catChart !== "undefined" ? catChart : null,
+    typeof releaseChart !== "undefined" ? releaseChart : null,
+    typeof qualityRadarChart !== "undefined" ? qualityRadarChart : null,
+    typeof bassChart !== "undefined" ? bassChart : null
+  ].filter(Boolean);
+
+  charts.forEach(c => {
     if (c.options.scales?.x) c.options.scales.x.ticks.color = tc;
     if (c.options.scales?.y) {
       c.options.scales.y.ticks.color = tc;
@@ -2224,6 +2227,8 @@ function updateChartThemes(theme) {
     c.update();
   });
 }
+
+setTheme(savedTheme);
 
 // -------------------------------------------------------------
 // Live Search & Category Filtering
@@ -2456,6 +2461,12 @@ function openDetailModal(sdkId) {
     '<div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1.1rem;font-family:Fira Code,monospace;font-size:0.86rem;color:var(--accent-emerald);margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">' +
       '<code>' + sdk.pip + '</code>' +
       '<button id="modalCopyPipBtn" class="top-btn"><i data-lucide="copy" style="width:14px;height:14px;"></i> Copy</button>' +
+    '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:0.75rem;margin-bottom:1.4rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1rem;text-align:center;">' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-emerald);">' + (sdk.downloads_month > 0 ? sdk.downloads_month.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Monthly DL</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-cyan);">' + (sdk.downloads_week > 0 ? sdk.downloads_week.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Weekly DL</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-purple);">' + sdk.proj_2027.toLocaleString() + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">2027 Target</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--fg-heading);">' + sdk.releases_count + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Releases</div></div>' +
     '</div>' +
     '<h4 style="font-size:0.9rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;letter-spacing:0.5px;">Core Capabilities &amp; Algorithm Suite</h4>' +
     '<ul style="list-style:none;margin-bottom:1.8rem;display:flex;flex-direction:column;gap:0.5rem;font-size:0.88rem;color:var(--fg);">' +

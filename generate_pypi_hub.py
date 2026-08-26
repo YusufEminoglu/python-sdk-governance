@@ -521,6 +521,10 @@ history_records = history_records[-90:]
 with open(HISTORY_FILE, "w", encoding="utf-8") as f:
     json.dump(history_records, f, indent=2)
 
+total_monthly_downloads = sum(s["downloads_month"] for s in enriched_sdks)
+total_weekly_downloads = sum(s["downloads_week"] for s in enriched_sdks)
+total_proj_2027 = sum(s["proj_2027"] for s in enriched_sdks)
+
 # Build Master Multi-Channel UI HTML
 HTML_CONTENT = f"""<!DOCTYPE html>
 <html lang="en" data-theme="dark">
@@ -1273,24 +1277,29 @@ footer a:hover {{
     <!-- Live KPI Metrics Strip -->
     <section class="metrics-grid">
       <div class="metric-card">
-        <div class="metric-val">{len(enriched_sdks)}</div>
-        <div class="metric-label">Headless Packages</div>
+        <div class="metric-val">{total_monthly_downloads:,}+</div>
+        <div class="metric-label">Monthly Downloads (PyPI)</div>
+        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;"><i data-lucide="trending-up" style="width:12px;height:12px;display:inline;"></i> Live Telemetry Active</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">{total_releases_all}</div>
-        <div class="metric-label">Releases Tracked</div>
+        <div class="metric-val">{total_proj_2027:,}+</div>
+        <div class="metric-label">Target 2027 Diffusion (N)</div>
+        <div style="font-size:0.75rem;color:var(--accent-cyan);margin-top:0.3rem;font-weight:600;">Bass Diffusion Model</div>
       </div>
       <div class="metric-card">
         <div class="metric-val">{total_algorithms}+</div>
         <div class="metric-label">Spatial &amp; ML Algorithms</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;font-weight:600;">Pure-Python Engines</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">100%</div>
-        <div class="metric-label">Pure-Python Portability</div>
+        <div class="metric-val">{len(enriched_sdks)}</div>
+        <div class="metric-label">Published Packages</div>
+        <div style="font-size:0.75rem;color:var(--accent-purple);margin-top:0.3rem;font-weight:600;">100% Zero-C Portability</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">99.2%</div>
-        <div class="metric-label">Ecosystem Health Score</div>
+        <div class="metric-val">{total_releases_all}</div>
+        <div class="metric-label">Total Builds &amp; Releases</div>
+        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;">99.2% Health Score</div>
       </div>
     </section>
 
@@ -1366,11 +1375,12 @@ footer a:hover {{
             <th onclick="sortTable(0)">Rank</th>
             <th onclick="sortTable(1)">Package &amp; Domain</th>
             <th onclick="sortTable(2)">Version</th>
-            <th onclick="sortTable(3)">Algorithms</th>
-            <th onclick="sortTable(4)">Releases</th>
-            <th onclick="sortTable(5)">Portability</th>
-            <th onclick="sortTable(6)">License</th>
-            <th onclick="sortTable(7)">Health Score</th>
+            <th onclick="sortTable(3)">Monthly DL</th>
+            <th onclick="sortTable(4)">Weekly DL</th>
+            <th onclick="sortTable(5)">Algorithms</th>
+            <th onclick="sortTable(6)">Target 2027</th>
+            <th onclick="sortTable(7)">Releases</th>
+            <th onclick="sortTable(8)">License</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -1379,6 +1389,8 @@ footer a:hover {{
 
 for idx, s in enumerate(enriched_sdks, start=1):
     initials = "".join([w[0].upper() for w in s["name"].replace("-sdk", "").replace("_sdk", "").split("_")])[:2]
+    dl_month_display = f"<span style='color:var(--accent-emerald);font-weight:800;'>{s['downloads_month']:,}</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span>" if s['downloads_month'] > 0 else "<span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span>"
+    dl_week_display = f"<span style='color:var(--fg);font-weight:700;'>{s['downloads_week']:,}</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span>" if s['downloads_week'] > 0 else "<span style='color:var(--muted);font-size:0.78rem;'>Active</span>"
     HTML_CONTENT += f"""
           <tr data-category="{s['category']}" data-search="{s['name']} {s['category']} {s['tagline']} {' '.join(s['highlights'])}" onclick="openDetailModal('{s['id']}')">
             <td style="font-weight:700;color:var(--muted);width:50px;">#{idx}</td>
@@ -1392,14 +1404,12 @@ for idx, s in enumerate(enriched_sdks, start=1):
               </div>
             </td>
             <td><span class="badge-version">v{s['version']}</span></td>
+            <td>{dl_month_display}</td>
+            <td>{dl_week_display}</td>
             <td style="font-weight:700;color:var(--accent-cyan);">{s['algorithms_count']} tools</td>
+            <td style="font-weight:700;color:var(--accent-purple);">{s['proj_2027']:,} <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">{s['releases_count']} builds</span></td>
-            <td><span style="color:var(--accent-emerald);font-weight:600;"><i data-lucide="check" style="width:14px;height:14px;display:inline;"></i> Zero-C</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">{s['license']}</span></td>
-            <td>
-              <div style="font-weight:700;color:var(--accent-emerald);font-size:0.85rem;">{s['health_score']}%</div>
-              <div class="health-bar-wrap"><div class="health-bar-fill" style="width:{s['health_score']}%;"></div></div>
-            </td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
                 <a href="{s['docs_url']}" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
@@ -2034,6 +2044,12 @@ function openDetailModal(sdkId) {{
     '<div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1.1rem;font-family:Fira Code,monospace;font-size:0.86rem;color:var(--accent-emerald);margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">' +
       '<code>' + sdk.pip + '</code>' +
       '<button id="modalCopyPipBtn" class="top-btn"><i data-lucide="copy" style="width:14px;height:14px;"></i> Copy</button>' +
+    '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:0.75rem;margin-bottom:1.4rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1rem;text-align:center;">' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-emerald);">' + (sdk.downloads_month > 0 ? sdk.downloads_month.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Monthly DL</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-cyan);">' + (sdk.downloads_week > 0 ? sdk.downloads_week.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Weekly DL</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-purple);">' + sdk.proj_2027.toLocaleString() + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">2027 Target</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--fg-heading);">' + sdk.releases_count + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Releases</div></div>' +
     '</div>' +
     '<h4 style="font-size:0.9rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;letter-spacing:0.5px;">Core Capabilities &amp; Algorithm Suite</h4>' +
     '<ul style="list-style:none;margin-bottom:1.8rem;display:flex;flex-direction:column;gap:0.5rem;font-size:0.88rem;color:var(--fg);">' +
