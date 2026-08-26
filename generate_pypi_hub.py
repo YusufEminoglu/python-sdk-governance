@@ -31,7 +31,7 @@ from datetime import datetime, timezone
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-BASE_DIR = r"C:\Users\YE\PyCharmMiscProject\PyPI\pypi_sdk_governance"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOCS_DIR = os.path.join(BASE_DIR, "docs")
 ICONS_DIR = os.path.join(DOCS_DIR, "icons")
 ASSETS_DIR = os.path.join(DOCS_DIR, "assets")
