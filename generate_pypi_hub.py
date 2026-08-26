@@ -547,7 +547,8 @@ with open(HISTORY_FILE, "w", encoding="utf-8") as f:
 
 total_monthly_downloads = sum(s["downloads_month"] for s in enriched_sdks)
 total_weekly_downloads = sum(s["downloads_week"] for s in enriched_sdks)
-total_proj_2027 = sum(s["proj_2027"] for s in enriched_sdks)
+total_loc_all = sum(s["real_loc"] for s in enriched_sdks)
+total_size_all = sum(s["pypi_size_kb"] for s in enriched_sdks)
 
 # Build Master Multi-Channel UI HTML
 HTML_CONTENT = f"""<!DOCTYPE html>
@@ -2073,7 +2074,7 @@ function openDetailModal(sdkId) {{
     '<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:0.75rem;margin-bottom:1.4rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1rem;text-align:center;">' +
       '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-emerald);">' + (sdk.downloads_month > 0 ? sdk.downloads_month.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Monthly DL</div></div>' +
       '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-cyan);">' + (sdk.downloads_week > 0 ? sdk.downloads_week.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Weekly DL</div></div>' +
-      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-purple);">' + sdk.proj_2027.toLocaleString() + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">2027 Target</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-purple);">' + sdk.real_loc.toLocaleString() + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Source LOC</div></div>' +
       '<div><div style="font-size:1.15rem;font-weight:800;color:var(--fg-heading);">' + sdk.releases_count + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Releases</div></div>' +
     '</div>' +
     '<h4 style="font-size:0.9rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;letter-spacing:0.5px;">Core Capabilities &amp; Algorithm Suite</h4>' +

@@ -63,63 +63,71 @@
   },
   {
     "date": "2026-08-26",
-    "timestamp": "2026-08-26T13:41:13.466967+00:00",
+    "timestamp": "2026-08-26T13:48:47.738899+00:00",
     "packages": {
       "geoai2analytics-sdk": {
         "version": "0.2.0",
         "downloads_month": 0,
         "stars": 0,
         "releases": 2,
-        "proj_2027": 2802
+        "pypi_size_kb": 36.5,
+        "real_loc": 2987
       },
       "multilayer-sdk": {
         "version": "0.1.1",
-        "downloads_month": 0,
+        "downloads_month": 123,
         "stars": 0,
         "releases": 2,
-        "proj_2027": 2147
+        "pypi_size_kb": 22.7,
+        "real_loc": 2357
       },
       "myface2city": {
         "version": "0.1.1",
         "downloads_month": 131,
         "stars": 0,
         "releases": 2,
-        "proj_2027": 2108
+        "pypi_size_kb": 18.4,
+        "real_loc": 1402
       },
       "NCZ2Geo": {
         "version": "0.1.0",
         "downloads_month": 0,
         "stars": 0,
         "releases": 1,
-        "proj_2027": 3727
+        "pypi_size_kb": 62.0,
+        "real_loc": 6684
       },
       "cad2geo": {
         "version": "0.2.0",
         "downloads_month": 135,
         "stars": 0,
         "releases": 2,
-        "proj_2027": 2496
+        "pypi_size_kb": 40.8,
+        "real_loc": 3201
       },
       "osm2threejs": {
         "version": "0.1.0",
         "downloads_month": 76,
         "stars": 0,
         "releases": 1,
-        "proj_2027": 1800
+        "pypi_size_kb": 26.0,
+        "real_loc": 3305
       },
       "zero2route3d_sdk": {
         "version": "0.2.0",
-        "downloads_month": 72,
+        "downloads_month": 0,
         "stars": 0,
         "releases": 1,
-        "proj_2027": 1353
+        "pypi_size_kb": 120.4,
+        "real_loc": 9534
       },
       "planx_sdk": {
         "version": "2.17.0",
-        "downloads_month": 0,
+        "downloads_month": 2170,
         "stars": 0,
         "releases": 36,
-        "proj_2027": 3243
+        "pypi_size_kb": 284.0,
+        "real_loc": 25709
       }
     }
   }
