@@ -1582,17 +1582,21 @@ const themeIcon = document.getElementById("themeIcon");
 function setTheme(theme) {{
   document.documentElement.setAttribute("data-theme", theme);
   localStorage.setItem("pypi_hub_theme", theme);
-  if (theme === "light") {{
-    themeIcon.setAttribute("data-lucide", "moon");
-  }} else {{
-    themeIcon.setAttribute("data-lucide", "sun");
+  if (themeIcon) {{
+    if (theme === "light") {{
+      themeIcon.setAttribute("data-lucide", "moon");
+    }} else {{
+      themeIcon.setAttribute("data-lucide", "sun");
+    }}
   }}
-  lucide.createIcons();
-  updateChartThemes(theme);
+  if (window.lucide) lucide.createIcons();
+  if (typeof updateChartThemes === "function") {{
+    updateChartThemes(theme);
+  }}
 }}
 
 const savedTheme = localStorage.getItem("pypi_hub_theme") || "dark";
-setTheme(savedTheme);
+document.documentElement.setAttribute("data-theme", savedTheme);
 
 themeToggle.addEventListener("click", () => {{
   const cur = document.documentElement.getAttribute("data-theme");
@@ -1610,8 +1614,9 @@ tabButtons.forEach(btn => {{
 
     btn.classList.add("active");
     const target = btn.getAttribute("data-tab");
-    document.getElementById("pane-" + target).classList.add("active");
-    lucide.createIcons();
+    const pane = document.getElementById("pane-" + target);
+    if (pane) pane.classList.add("active");
+    if (window.lucide) lucide.createIcons();
 
     if (target === "topology") initTopology();
   }});
@@ -1770,7 +1775,15 @@ function updateChartThemes(theme) {{
   const tc = textColor();
   const gc = gridColor();
 
-  [algoChart, catChart, releaseChart, qualityRadarChart, bassChart].forEach(c => {{
+  const charts = [
+    typeof algoChart !== "undefined" ? algoChart : null,
+    typeof catChart !== "undefined" ? catChart : null,
+    typeof releaseChart !== "undefined" ? releaseChart : null,
+    typeof qualityRadarChart !== "undefined" ? qualityRadarChart : null,
+    typeof bassChart !== "undefined" ? bassChart : null
+  ].filter(Boolean);
+
+  charts.forEach(c => {{
     if (c.options.scales?.x) c.options.scales.x.ticks.color = tc;
     if (c.options.scales?.y) {{
       c.options.scales.y.ticks.color = tc;
@@ -1787,6 +1800,8 @@ function updateChartThemes(theme) {{
     c.update();
   }});
 }}
+
+setTheme(savedTheme);
 
 // -------------------------------------------------------------
 // Live Search & Category Filtering
