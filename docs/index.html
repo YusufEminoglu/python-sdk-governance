@@ -749,48 +749,48 @@ footer a:hover {
     <!-- Live KPI Metrics Strip -->
     <section class="metrics-grid">
       <div class="metric-card">
-        <div class="metric-val">414+</div>
-        <div class="metric-label">Monthly Downloads (PyPI)</div>
-        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;"><i data-lucide="trending-up" style="width:12px;height:12px;display:inline;"></i> Live Telemetry Active</div>
+        <div class="metric-val">55,179</div>
+        <div class="metric-label">Pure-Python Lines of Code</div>
+        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;"><i data-lucide="code" style="width:12px;height:12px;display:inline;"></i> Verified Source Code</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">19,676+</div>
-        <div class="metric-label">Target 2027 Diffusion (N)</div>
-        <div style="font-size:0.75rem;color:var(--accent-cyan);margin-top:0.3rem;font-weight:600;">Bass Diffusion Model</div>
+        <div class="metric-val">2,590+</div>
+        <div class="metric-label">Monthly Downloads (PyPI)</div>
+        <div style="font-size:0.75rem;color:var(--accent-cyan);margin-top:0.3rem;font-weight:600;"><i data-lucide="trending-up" style="width:12px;height:12px;display:inline;"></i> PyPI Stats API Telemetry</div>
       </div>
       <div class="metric-card">
         <div class="metric-val">220+</div>
         <div class="metric-label">Spatial &amp; ML Algorithms</div>
-        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;font-weight:600;">Pure-Python Engines</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;font-weight:600;">Mathematical Engines</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">8</div>
-        <div class="metric-label">Published Packages</div>
-        <div style="font-size:0.75rem;color:var(--accent-purple);margin-top:0.3rem;font-weight:600;">100% Zero-C Portability</div>
+        <div class="metric-val">610.8 KB</div>
+        <div class="metric-label">PyPI Distribution Wheels</div>
+        <div style="font-size:0.75rem;color:var(--accent-purple);margin-top:0.3rem;font-weight:600;">8 Packages Artifacts</div>
       </div>
       <div class="metric-card">
         <div class="metric-val">47</div>
-        <div class="metric-label">Total Builds &amp; Releases</div>
-        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;">99.2% Health Score</div>
+        <div class="metric-label">Total PyPI Builds &amp; Releases</div>
+        <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;">PyPI Verified Attestations</div>
       </div>
     </section>
 
     <!-- Interactive Charts Grid (Chart.js) -->
     <section class="charts-grid">
-      <!-- Chart 1: Algorithms & Feature Density -->
+      <!-- Chart 1: Source Code Volume (LOC) -->
       <div class="chart-card">
         <div class="chart-header">
-          <div class="chart-title"><i data-lucide="brain-circuit" style="width:18px;height:18px;color:var(--accent-emerald);"></i> Algorithm &amp; Analytical Suite Density</div>
+          <div class="chart-title"><i data-lucide="code-2" style="width:18px;height:18px;color:var(--accent-emerald);"></i> Real Source Code Volume (Lines of Code)</div>
         </div>
         <div class="chart-container">
           <canvas id="algoChart"></canvas>
         </div>
       </div>
 
-      <!-- Chart 2: Domain & Category Distribution -->
+      <!-- Chart 2: PyPI Distribution Wheel Size -->
       <div class="chart-card">
         <div class="chart-header">
-          <div class="chart-title"><i data-lucide="pie-chart" style="width:18px;height:18px;color:var(--accent-cyan);"></i> Architectural Domain Allocation</div>
+          <div class="chart-title"><i data-lucide="package" style="width:18px;height:18px;color:var(--accent-cyan);"></i> PyPI Artifact Distribution Size (KB)</div>
         </div>
         <div class="chart-container">
           <canvas id="catChart"></canvas>
@@ -800,7 +800,7 @@ footer a:hover {
       <!-- Chart 3: Historical Telemetry Timeline -->
       <div class="chart-card">
         <div class="chart-header">
-          <div class="chart-title"><i data-lucide="rocket" style="width:18px;height:18px;color:var(--accent-purple);"></i> Release &amp; Version Velocity</div>
+          <div class="chart-title"><i data-lucide="rocket" style="width:18px;height:18px;color:var(--accent-purple);"></i> PyPI Release &amp; Build Velocity</div>
         </div>
         <div class="chart-container">
           <canvas id="releaseChart"></canvas>
@@ -810,7 +810,7 @@ footer a:hover {
       <!-- Chart 4: Forensic Quality & Compliance Radar -->
       <div class="chart-card">
         <div class="chart-header">
-          <div class="chart-title"><i data-lucide="shield-check" style="width:18px;height:18px;color:var(--accent-emerald);"></i> Forensic Quality &amp; Governance Matrix</div>
+          <div class="chart-title"><i data-lucide="shield-check" style="width:18px;height:18px;color:var(--accent-emerald);"></i> Forensic Quality &amp; Architecture Matrix</div>
         </div>
         <div class="chart-container">
           <canvas id="qualityRadarChart"></canvas>
@@ -847,10 +847,10 @@ footer a:hover {
             <th onclick="sortTable(0)">Rank</th>
             <th onclick="sortTable(1)">Package &amp; Domain</th>
             <th onclick="sortTable(2)">Version</th>
-            <th onclick="sortTable(3)">Monthly DL</th>
-            <th onclick="sortTable(4)">Weekly DL</th>
-            <th onclick="sortTable(5)">Algorithms</th>
-            <th onclick="sortTable(6)">Target 2027</th>
+            <th onclick="sortTable(3)">PyPI Monthly DL</th>
+            <th onclick="sortTable(4)">Source LOC</th>
+            <th onclick="sortTable(5)">Wheel Size</th>
+            <th onclick="sortTable(6)">Algorithms</th>
             <th onclick="sortTable(7)">Releases</th>
             <th onclick="sortTable(8)">License</th>
             <th>Actions</th>
@@ -870,10 +870,10 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.2.0</span></td>
-            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
-            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">81 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">2,802 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td><span style='color:var(--accent-emerald);font-weight:800;'>149</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">2,987 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">36.5 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">81 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
             <td onclick="event.stopPropagation()">
@@ -897,10 +897,10 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.1.1</span></td>
-            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
-            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">14 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">2,147 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td><span style='color:var(--accent-emerald);font-weight:800;'>123</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">2,357 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">22.7 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">14 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
             <td onclick="event.stopPropagation()">
@@ -924,10 +924,10 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.1.1</span></td>
-            <td><span style='color:var(--accent-emerald);font-weight:800;'>131</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
-            <td><span style='color:var(--fg);font-weight:700;'>131</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">12 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">2,108 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New on PyPI</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">1,402 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">18.4 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">12 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
             <td onclick="event.stopPropagation()">
@@ -951,10 +951,10 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.1.0</span></td>
-            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
-            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">16 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">3,727 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New on PyPI</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">6,684 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">62.0 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">16 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">1 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-2.0-or-later</span></td>
             <td onclick="event.stopPropagation()">
@@ -978,10 +978,10 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v0.2.0</span></td>
-            <td><span style='color:var(--accent-emerald);font-weight:800;'>135</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
-            <td><span style='color:var(--fg);font-weight:700;'>135</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">15 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">2,496 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New on PyPI</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">3,201 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">40.8 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">15 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">2 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-3.0-or-later</span></td>
             <td onclick="event.stopPropagation()">
@@ -1006,9 +1006,9 @@ footer a:hover {
             </td>
             <td><span class="badge-version">v0.1.0</span></td>
             <td><span style='color:var(--accent-emerald);font-weight:800;'>76</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
-            <td><span style='color:var(--fg);font-weight:700;'>76</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">18 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">1,800 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">3,305 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">26.0 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">18 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">1 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
             <td onclick="event.stopPropagation()">
@@ -1033,9 +1033,9 @@ footer a:hover {
             </td>
             <td><span class="badge-version">v0.2.0</span></td>
             <td><span style='color:var(--accent-emerald);font-weight:800;'>72</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
-            <td><span style='color:var(--fg);font-weight:700;'>72</span> <span style='font-size:0.75rem;color:var(--muted);'>/wk</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">22 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">1,353 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">9,534 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">120.4 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">22 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">1 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-3.0-or-later</span></td>
             <td onclick="event.stopPropagation()">
@@ -1059,10 +1059,10 @@ footer a:hover {
               </div>
             </td>
             <td><span class="badge-version">v2.17.0</span></td>
-            <td><span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New / Indexing</span></td>
-            <td><span style='color:var(--muted);font-size:0.78rem;'>Active</span></td>
-            <td style="font-weight:700;color:var(--accent-cyan);">42 tools</td>
-            <td style="font-weight:700;color:var(--accent-purple);">3,243 <span style='font-size:0.75rem;color:var(--muted);'>target</span></td>
+            <td><span style='color:var(--accent-emerald);font-weight:800;'>2,170</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">25,709 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">284.0 KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">42 tools</td>
             <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">36 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">GPL-3.0-or-later</span></td>
             <td onclick="event.stopPropagation()">
@@ -1606,17 +1606,18 @@ const SDKS_DATA = [
       "0.1.0",
       "0.2.0"
     ],
-    "downloads_day": 0,
-    "downloads_week": 0,
-    "downloads_month": 0,
+    "pypi_size_kb": 36.5,
+    "real_loc": 2987,
+    "py_files_count": 11,
+    "downloads_day": 149,
+    "downloads_week": 149,
+    "downloads_month": 149,
     "stars": 0,
     "forks": 0,
     "issues": 0,
     "created_at": "2026-08-25",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 2802
+    "requires_python": ">=3.9"
   },
   {
     "id": "multilayer",
@@ -1657,17 +1658,18 @@ const SDKS_DATA = [
       "0.1.0",
       "0.1.1"
     ],
-    "downloads_day": 0,
-    "downloads_week": 0,
-    "downloads_month": 0,
+    "pypi_size_kb": 22.7,
+    "real_loc": 2357,
+    "py_files_count": 8,
+    "downloads_day": 123,
+    "downloads_week": 123,
+    "downloads_month": 123,
     "stars": 0,
     "forks": 0,
     "issues": 0,
     "created_at": "2026-08-25",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 2147
+    "requires_python": ">=3.9"
   },
   {
     "id": "myface2city",
@@ -1707,17 +1709,18 @@ const SDKS_DATA = [
       "0.1.0",
       "0.1.1"
     ],
-    "downloads_day": 131,
-    "downloads_week": 131,
-    "downloads_month": 131,
+    "pypi_size_kb": 18.4,
+    "real_loc": 1402,
+    "py_files_count": 9,
+    "downloads_day": 0,
+    "downloads_week": 0,
+    "downloads_month": 0,
     "stars": 0,
     "forks": 0,
     "issues": 0,
     "created_at": "2026-08-25",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 2108
+    "requires_python": ">=3.9"
   },
   {
     "id": "ncz2geo",
@@ -1756,6 +1759,9 @@ const SDKS_DATA = [
     "releases_list": [
       "0.1.0"
     ],
+    "pypi_size_kb": 62.0,
+    "real_loc": 6684,
+    "py_files_count": 20,
     "downloads_day": 0,
     "downloads_week": 0,
     "downloads_month": 0,
@@ -1764,9 +1770,7 @@ const SDKS_DATA = [
     "issues": 0,
     "created_at": "2026-08-25",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 3727
+    "requires_python": ">=3.9"
   },
   {
     "id": "cad2geo",
@@ -1805,17 +1809,18 @@ const SDKS_DATA = [
       "0.1.0",
       "0.2.0"
     ],
-    "downloads_day": 135,
-    "downloads_week": 135,
-    "downloads_month": 135,
+    "pypi_size_kb": 40.8,
+    "real_loc": 3201,
+    "py_files_count": 20,
+    "downloads_day": 0,
+    "downloads_week": 0,
+    "downloads_month": 0,
     "stars": 0,
     "forks": 0,
     "issues": 0,
     "created_at": "2026-08-25",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 2496
+    "requires_python": ">=3.9"
   },
   {
     "id": "osm2threejs",
@@ -1854,6 +1859,9 @@ const SDKS_DATA = [
     "releases_list": [
       "0.1.0"
     ],
+    "pypi_size_kb": 26.0,
+    "real_loc": 3305,
+    "py_files_count": 9,
     "downloads_day": 76,
     "downloads_week": 76,
     "downloads_month": 76,
@@ -1862,9 +1870,7 @@ const SDKS_DATA = [
     "issues": 0,
     "created_at": "2026-08-25",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 1800
+    "requires_python": ">=3.9"
   },
   {
     "id": "zero2route3d",
@@ -1903,6 +1909,9 @@ const SDKS_DATA = [
     "releases_list": [
       "0.2.0"
     ],
+    "pypi_size_kb": 120.4,
+    "real_loc": 9534,
+    "py_files_count": 36,
     "downloads_day": 72,
     "downloads_week": 72,
     "downloads_month": 72,
@@ -1911,9 +1920,7 @@ const SDKS_DATA = [
     "issues": 0,
     "created_at": "2026-08-23",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 1353
+    "requires_python": ">=3.9"
   },
   {
     "id": "planx",
@@ -1987,17 +1994,18 @@ const SDKS_DATA = [
       "2.9.1",
       "2.9.2"
     ],
-    "downloads_day": 0,
-    "downloads_week": 0,
-    "downloads_month": 0,
+    "pypi_size_kb": 284.0,
+    "real_loc": 25709,
+    "py_files_count": 77,
+    "downloads_day": 1,
+    "downloads_week": 115,
+    "downloads_month": 2170,
     "stars": 0,
     "forks": 0,
     "issues": 0,
     "created_at": "2026-06-14",
     "updated_at": "2026-08-25",
-    "health_score": 99.2,
-    "requires_python": ">=3.9",
-    "proj_2027": 3243
+    "requires_python": ">=3.9"
   }
 ];
 lucide.createIcons();
@@ -2056,15 +2064,15 @@ const isDark = () => document.documentElement.getAttribute("data-theme") !== "li
 const textColor = () => isDark() ? "#8da2b5" : "#64748b";
 const gridColor = () => isDark() ? "#1a3854" : "#e2e8f0";
 
-// Chart 1: Algorithms Bar Chart
+// Chart 1: Real Source Code LOC Bar Chart
 const ctxAlgo = document.getElementById("algoChart").getContext("2d");
 const algoChart = new Chart(ctxAlgo, {
   type: "bar",
   data: {
     labels: ["geoai2analytics-sdk", "multilayer-sdk", "myface2city", "NCZ2Geo", "cad2geo", "osm2threejs", "zero2route3d_sdk", "planx_sdk"],
     datasets: [{
-      label: "Spatial / ML Algorithms",
-      data: [81, 14, 12, 16, 15, 18, 22, 42],
+      label: "Lines of Pure-Python Code (LOC)",
+      data: [2987, 2357, 1402, 6684, 3201, 3305, 9534, 25709],
       backgroundColor: "#10b981",
       borderRadius: 6
     }]
@@ -2080,25 +2088,27 @@ const algoChart = new Chart(ctxAlgo, {
   }
 });
 
-// Chart 2: Category Doughnut Chart
-const categoriesCount = {};
-SDKS_DATA.forEach(s => categoriesCount[s.category] = (categoriesCount[s.category] || 0) + 1);
-
+// Chart 2: Real PyPI Artifact Distribution Size (KB)
 const ctxCat = document.getElementById("catChart").getContext("2d");
 const catChart = new Chart(ctxCat, {
-  type: "doughnut",
+  type: "bar",
   data: {
-    labels: Object.keys(categoriesCount),
+    labels: ["geoai2analytics-sdk", "multilayer-sdk", "myface2city", "NCZ2Geo", "cad2geo", "osm2threejs", "zero2route3d_sdk", "planx_sdk"],
     datasets: [{
-      data: Object.values(categoriesCount),
-      backgroundColor: ["#10b981", "#06b6d4", "#f43f5e", "#38bdf8", "#a855f7", "#f59e0b"],
-      borderWidth: 0
+      label: "PyPI Distribution Size (KB)",
+      data: [36.5, 22.7, 18.4, 62.0, 40.8, 26.0, 120.4, 284.0],
+      backgroundColor: "#06b6d4",
+      borderRadius: 6
     }]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { position: "right", labels: { color: textColor(), font: { size: 11 } } } }
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: textColor(), font: { size: 10 } }, grid: { display: false } },
+      y: { ticks: { color: textColor() }, grid: { color: gridColor() } }
+    }
   }
 });
 
@@ -2465,7 +2475,7 @@ function openDetailModal(sdkId) {
     '<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:0.75rem;margin-bottom:1.4rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1rem;text-align:center;">' +
       '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-emerald);">' + (sdk.downloads_month > 0 ? sdk.downloads_month.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Monthly DL</div></div>' +
       '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-cyan);">' + (sdk.downloads_week > 0 ? sdk.downloads_week.toLocaleString() : 'Active') + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Weekly DL</div></div>' +
-      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-purple);">' + sdk.proj_2027.toLocaleString() + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">2027 Target</div></div>' +
+      '<div><div style="font-size:1.15rem;font-weight:800;color:var(--accent-purple);">' + sdk.real_loc.toLocaleString() + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Source LOC</div></div>' +
       '<div><div style="font-size:1.15rem;font-weight:800;color:var(--fg-heading);">' + sdk.releases_count + '</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;font-weight:600;">Releases</div></div>' +
     '</div>' +
     '<h4 style="font-size:0.9rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;letter-spacing:0.5px;">Core Capabilities &amp; Algorithm Suite</h4>' +
