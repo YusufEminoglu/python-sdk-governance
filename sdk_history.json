@@ -63,11 +63,11 @@
   },
   {
     "date": "2026-08-26",
-    "timestamp": "2026-08-26T13:48:47.738899+00:00",
+    "timestamp": "2026-08-26T13:49:38.424417+00:00",
     "packages": {
       "geoai2analytics-sdk": {
         "version": "0.2.0",
-        "downloads_month": 0,
+        "downloads_month": 149,
         "stars": 0,
         "releases": 2,
         "pypi_size_kb": 36.5,
@@ -83,7 +83,7 @@
       },
       "myface2city": {
         "version": "0.1.1",
-        "downloads_month": 131,
+        "downloads_month": 0,
         "stars": 0,
         "releases": 2,
         "pypi_size_kb": 18.4,
@@ -99,7 +99,7 @@
       },
       "cad2geo": {
         "version": "0.2.0",
-        "downloads_month": 135,
+        "downloads_month": 0,
         "stars": 0,
         "releases": 2,
         "pypi_size_kb": 40.8,
@@ -115,7 +115,7 @@
       },
       "zero2route3d_sdk": {
         "version": "0.2.0",
-        "downloads_month": 0,
+        "downloads_month": 72,
         "stars": 0,
         "releases": 1,
         "pypi_size_kb": 120.4,
