@@ -54,9 +54,10 @@ SDK_REGISTRY = [
         "color_glow": "rgba(16, 185, 129, 0.4)",
         "gradient": "linear-gradient(135deg, #10b981, #06b6d4)",
         "license": "MIT",
-        "docs_url": "https://yusufeminoglu.github.io/geoai2analytics-sdk/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/geoai2analytics-sdk/",
-        "github_url": "https://github.com/YusufEminoglu/geoai2analytics-sdk",
+        "github_url": "https://gitlab.com/geospacephilo/geoai2analytics-sdk",
+        "gitlab_url": "https://gitlab.com/geospacephilo/geoai2analytics-sdk",
         "pip": "pip install geoai2analytics-sdk",
         "algorithms_count": 81,
         "pure_python": True,
@@ -96,9 +97,10 @@ print(f"Moran's I Index: {moran.I:.4f} (p-value: {moran.p_value:.5f})")"""
         "color_glow": "rgba(6, 182, 212, 0.4)",
         "gradient": "linear-gradient(135deg, #06b6d4, #3b82f6)",
         "license": "MIT",
-        "docs_url": "https://yusufeminoglu.github.io/multilayer-sdk/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/multilayer-sdk/",
-        "github_url": "https://github.com/YusufEminoglu/multilayer-sdk",
+        "github_url": "https://gitlab.com/geospacephilo/multilayer-sdk",
+        "gitlab_url": "https://gitlab.com/geospacephilo/multilayer-sdk",
         "pip": "pip install multilayer-sdk",
         "algorithms_count": 14,
         "pure_python": True,
@@ -140,9 +142,10 @@ print("Dashboard compiled: multimap_dashboard.html (Zero dependencies)")"""
         "color_glow": "rgba(244, 63, 94, 0.4)",
         "gradient": "linear-gradient(135deg, #f43f5e, #a855f7)",
         "license": "MIT",
-        "docs_url": "https://yusufeminoglu.github.io/MyFace2City/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/myface2city/",
-        "github_url": "https://github.com/YusufEminoglu/MyFace2City",
+        "github_url": "https://gitlab.com/geospacephilo/MyFace2City",
+        "gitlab_url": "https://gitlab.com/geospacephilo/MyFace2City",
         "pip": "pip install myface2city",
         "algorithms_count": 12,
         "pure_python": True,
@@ -183,9 +186,10 @@ print("Artwork generated: city_portrait.svg")"""
         "color_glow": "rgba(56, 189, 248, 0.4)",
         "gradient": "linear-gradient(135deg, #38bdf8, #6366f1)",
         "license": "GPL-2.0-or-later",
-        "docs_url": "https://yusufeminoglu.github.io/NCZ2Geo/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/NCZ2Geo/",
-        "github_url": "https://github.com/YusufEminoglu/NCZ2Geo",
+        "github_url": "https://gitlab.com/geospacephilo/NCZ2Geo",
+        "gitlab_url": "https://gitlab.com/geospacephilo/NCZ2Geo",
         "pip": "pip install NCZ2Geo",
         "algorithms_count": 16,
         "pure_python": True,
@@ -225,9 +229,10 @@ with open("plangml_output.geojson", "w") as f:
         "color_glow": "rgba(59, 130, 246, 0.4)",
         "gradient": "linear-gradient(135deg, #3b82f6, #06b6d4)",
         "license": "GPL-3.0-or-later",
-        "docs_url": "https://yusufeminoglu.github.io/cad2geo/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/cad2geo/",
-        "github_url": "https://github.com/YusufEminoglu/cad2geo",
+        "github_url": "https://gitlab.com/geospacephilo/cad2geo",
+        "gitlab_url": "https://gitlab.com/geospacephilo/cad2geo",
         "pip": "pip install cad2geo",
         "algorithms_count": 15,
         "pure_python": True,
@@ -261,9 +266,10 @@ print(f"Converted {len(features)} spatial geometries in 3.8 ms.")"""
         "color_glow": "rgba(168, 85, 247, 0.4)",
         "gradient": "linear-gradient(135deg, #a855f7, #ec4899)",
         "license": "MIT",
-        "docs_url": "https://yusufeminoglu.github.io/osm2threejs/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/osm2threejs/",
-        "github_url": "https://github.com/YusufEminoglu/osm2threejs",
+        "github_url": "https://gitlab.com/geospacephilo/osm2threejs",
+        "gitlab_url": "https://gitlab.com/geospacephilo/osm2threejs",
         "pip": "pip install osm2threejs",
         "algorithms_count": 18,
         "pure_python": True,
@@ -293,7 +299,7 @@ print("Exported 3D WebGL Digital Twin -> digital_twin.glb")"""
     {
         "id": "zero2route3d",
         "name": "zero2route3d_sdk",
-        "pypi": "zero2route3d_sdk",
+        "pypi": "zero2route3d-sdk",
         "gh_repo": "zero2route3d_sdk",
         "category": "Routing & 3D Kinematics",
         "tagline": "Headless 3D spatial mobility, biomechanical kinematics, and metabolic energy routing engine.",
@@ -301,10 +307,11 @@ print("Exported 3D WebGL Digital Twin -> digital_twin.glb")"""
         "color_glow": "rgba(245, 158, 11, 0.4)",
         "gradient": "linear-gradient(135deg, #f59e0b, #ef4444)",
         "license": "GPL-3.0-or-later",
-        "docs_url": "https://yusufeminoglu.github.io/zero2route3d_sdk/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/zero2route3d_sdk/",
-        "github_url": "https://github.com/YusufEminoglu/zero2route3d_sdk",
-        "pip": "pip install zero2route3d_sdk",
+        "github_url": "https://gitlab.com/geospacephilo/zero2route3d_sdk",
+        "gitlab_url": "https://gitlab.com/geospacephilo/zero2route3d_sdk",
+        "pip": "pip install zero2route3d-sdk",
         "algorithms_count": 22,
         "pure_python": True,
         "ci_status": "100% Passing (3.9 - 3.13)",
@@ -332,7 +339,7 @@ print(f"Distance: {result.distance_m:.1f} m | Caloric Burn: {result.calories_kca
     {
         "id": "planx",
         "name": "planx_sdk",
-        "pypi": "planx_sdk",
+        "pypi": "planx-sdk",
         "gh_repo": "planx_sdk",
         "category": "Spatial Planning & MCDA",
         "tagline": "Core geospatial, spatial statistics, MCDA, and urban resilience engines for the PlanX suite.",
@@ -340,10 +347,11 @@ print(f"Distance: {result.distance_m:.1f} m | Caloric Burn: {result.calories_kca
         "color_glow": "rgba(16, 185, 129, 0.4)",
         "gradient": "linear-gradient(135deg, #10b981, #3b82f6)",
         "license": "GPL-3.0-or-later",
-        "docs_url": "https://yusufeminoglu.github.io/planx_sdk/",
+        "docs_url": "https://geophilo.com/",
         "pypi_url": "https://pypi.org/project/planx_sdk/",
-        "github_url": "https://github.com/YusufEminoglu/planx_sdk",
-        "pip": "pip install planx_sdk",
+        "github_url": "https://gitlab.com/geospacephilo/planx_sdk",
+        "gitlab_url": "https://gitlab.com/geospacephilo/planx_sdk",
+        "pip": "pip install planx-sdk",
         "algorithms_count": 42,
         "pure_python": True,
         "ci_status": "100% Passing (3.9 - 3.13)",
@@ -564,7 +572,7 @@ HTML_CONTENT = f"""<!DOCTYPE html>
 <!-- OpenGraph & Twitter Cards -->
 <meta property="og:title" content="GeoAI &amp; Spatial Python SDK Portfolio Studio">
 <meta property="og:description" content="Enterprise Open-Source Telemetry, Econometric Forecasting &amp; Forensic Governance for 8 Spatial Python SDKs.">
-<meta property="og:url" content="https://yusufeminoglu.github.io/python-sdk-governance/">
+<meta property="og:url" content="https://geophilo.com/sdk-governance/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -1271,7 +1279,8 @@ footer a:hover {{
     <span class="hub-status-pill"><span class="live-dot"></span> 8 SDKs Telemetry Active</span>
   </a>
   <div class="top-actions">
-    <a href="https://github.com/YusufEminoglu" target="_blank" class="top-btn"><i data-lucide="github" style="width:14px;height:14px;"></i> GitHub Profile</a>
+    <a href="https://geophilo.com" target="_blank" class="top-btn primary" style="background:#1f9b8e;border-color:#15756a;"><i data-lucide="globe" style="width:14px;height:14px;"></i> GEOPHILO Studio</a>
+    <a href="https://gitlab.com/geospacephilo" target="_blank" class="top-btn"><i data-lucide="git-branch" style="width:14px;height:14px;color:#fc6d26;"></i> GitLab Profile</a>
     <a href="https://pypi.org/user/yusuf.eminoglu/" target="_blank" class="top-btn"><i data-lucide="package" style="width:14px;height:14px;"></i> PyPI Profile</a>
     <button id="themeToggle" class="top-btn" title="Toggle Theme"><i data-lucide="sun" id="themeIcon" style="width:14px;height:14px;"></i></button>
     <a href="#installer" class="top-btn primary"><i data-lucide="terminal" style="width:14px;height:14px;"></i> Multi-Installer</a>
@@ -1438,7 +1447,7 @@ for idx, s in enumerate(enriched_sdks, start=1):
               <div style="display:flex;gap:0.4rem;">
                 <a href="{s['docs_url']}" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
                 <a href="{s['pypi_url']}" target="_blank" class="action-icon-btn" title="Open PyPI Package"><i data-lucide="package" style="width:14px;height:14px;"></i></a>
-                <a href="{s['github_url']}" target="_blank" class="action-icon-btn" title="Open GitHub Repository"><i data-lucide="github" style="width:14px;height:14px;"></i></a>
+                <a href="{s['github_url']}" target="_blank" class="action-icon-btn" title="Open GitLab Repository"><i data-lucide="git-branch" style="width:14px;height:14px;"></i></a>
               </div>
             </td>
           </tr>
@@ -2084,7 +2093,7 @@ function openDetailModal(sdkId) {{
     '<div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:0.75rem;border-top:1px solid var(--border);padding-top:1.2rem;">' +
       '<a href="' + sdk.docs_url + '" target="_blank" class="top-btn primary" style="justify-content:center;"><i data-lucide="book-open" style="width:14px;height:14px;"></i> Interactive Docs</a>' +
       '<a href="' + sdk.pypi_url + '" target="_blank" class="top-btn" style="justify-content:center;color:var(--accent-cyan);"><i data-lucide="package" style="width:14px;height:14px;"></i> PyPI Page</a>' +
-      '<a href="' + sdk.github_url + '" target="_blank" class="top-btn" style="justify-content:center;"><i data-lucide="github" style="width:14px;height:14px;"></i> GitHub Repo</a>' +
+      '<a href="' + sdk.github_url + '" target="_blank" class="top-btn" style="justify-content:center;"><i data-lucide="git-branch" style="width:14px;height:14px;"></i> GitHub Repo</a>' +
     '</div>';
 
   document.getElementById("modalCopyPipBtn").onclick = () => copyText(sdk.pip);
