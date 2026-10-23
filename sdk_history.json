@@ -200,5 +200,75 @@
         "real_loc": 27957
       }
     }
+  },
+  {
+    "date": "2026-10-23",
+    "timestamp": "2026-10-23T02:22:15.734282+00:00",
+    "packages": {
+      "geoai2analytics-sdk": {
+        "version": "0.12.1",
+        "downloads_month": 277,
+        "stars": 0,
+        "releases": 4,
+        "pypi_size_kb": 74.3,
+        "real_loc": 5528
+      },
+      "multilayer-sdk": {
+        "version": "0.12.1",
+        "downloads_month": 269,
+        "stars": 0,
+        "releases": 4,
+        "pypi_size_kb": 65.8,
+        "real_loc": 5063
+      },
+      "myface2city": {
+        "version": "0.12.1",
+        "downloads_month": 256,
+        "stars": 0,
+        "releases": 4,
+        "pypi_size_kb": 54.6,
+        "real_loc": 3476
+      },
+      "NCZ2Geo": {
+        "version": "0.12.1",
+        "downloads_month": 313,
+        "stars": 0,
+        "releases": 3,
+        "pypi_size_kb": 102.0,
+        "real_loc": 11020
+      },
+      "cad2geo": {
+        "version": "0.12.1",
+        "downloads_month": 323,
+        "stars": 0,
+        "releases": 4,
+        "pypi_size_kb": 76.1,
+        "real_loc": 5714
+      },
+      "osm2threejs": {
+        "version": "0.12.1",
+        "downloads_month": 306,
+        "stars": 0,
+        "releases": 3,
+        "pypi_size_kb": 60.7,
+        "real_loc": 5598
+      },
+      "zero2route3d-sdk": {
+        "version": "0.12.1",
+        "downloads_month": 246,
+        "stars": 0,
+        "releases": 3,
+        "pypi_size_kb": 162.2,
+        "real_loc": 12173
+      },
+      "planx-sdk": {
+        "version": "2.27.1",
+        "downloads_month": 415,
+        "stars": 0,
+        "releases": 38,
+        "pypi_size_kb": 321.0,
+        "real_loc": 28520
+      }
+    }
   }
 ]

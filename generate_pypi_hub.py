@@ -20,16 +20,14 @@ Comprehensive Elite Studio Features:
 6. Synthesized Cyberpunk / Neon Glassmorphic Dark & Light Themes
 """
 
-import os
-import sys
 import json
-import math
-import hashlib
-import urllib.request
+import os
 import subprocess
+import sys
+import urllib.request
 from datetime import datetime, timezone
 
-sys.stdout.reconfigure(encoding='utf-8')
+sys.stdout.reconfigure(encoding="utf-8")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOCS_DIR = os.path.join(BASE_DIR, "docs")
@@ -73,18 +71,19 @@ SDK_REGISTRY = [
             "Global Moran's I, LISA, Getis-Ord Gi*, Geary's C, Ripley's K",
             "Spatial Econometrics: OLS, SAR (Lag), SEM (Error), SDM (Durbin)",
             "GWR & Multiscale MGWR Golden-Section Bandwidth Kernels",
-            "Explainable GeoAI: Spatial SHAP Attribution Maps & Conformal Uncertainty"
+            "Explainable GeoAI: Spatial SHAP Attribution Maps & Conformal Uncertainty",
         ],
-        "repl_example": """import geoai2analytics as ga
-import numpy as np
+        "repl_example": """import numpy as np
+from geoai2analytics import global_moran, knn_weights
 
-# Compute Global Moran's I on spatial grid
-coords = np.random.rand(100, 2)
-values = np.sin(coords[:, 0] * 3) + np.random.normal(0, 0.1, 100)
-W = ga.weights.knn(coords, k=5)
-moran = ga.stats.morans_i(values, W)
+# Build a k-NN spatial weights matrix over random coordinates
+coords = np.random.default_rng(42).random((100, 2))
+values = np.sin(coords[:, 0] * 3) + np.random.default_rng(7).normal(0, 0.1, 100)
+weights = knn_weights(coords, k=5)
 
-print(f"Moran's I Index: {moran.I:.4f} (p-value: {moran.p_value:.5f})")"""
+# Compute Global Moran's I with analytical & Monte Carlo p-values
+result = global_moran(values, weights)
+print(f"Moran's I: {result.I:.4f} (p-value: {result.p_value:.5f})")""",
     },
     {
         "id": "multilayer",
@@ -117,19 +116,20 @@ print(f"Moran's I Index: {moran.I:.4f} (p-value: {moran.p_value:.5f})")"""
             "Neon Laser Crosshair Cursor Tracking Across All Viewports",
             "Draggable Split-Screen Curtain Swipe Slider (SwipeMap)",
             "Quantiles, Equal Interval, Natural Breaks Choropleth Engine",
-            "Single-File Standalone Interactive HTML Dashboard Exporter"
+            "Single-File Standalone Interactive HTML Dashboard Exporter",
         ],
         "repl_example": """import multilayer as ml
 
-# Create 4-panel synchronized urban workspace
-mm = ml.MultiMap(layout="2x2", center=(38.42, 27.14), zoom=13)
-mm.panel(0).add_basemap("CartoDB.DarkMatter").add_title("Dark Basemap")
-mm.panel(1).add_basemap("Esri.WorldImagery").add_title("Satellite")
-mm.panel(2).add_choropleth(geojson_data="zoning.json", column="density")
-mm.panel(3).add_swipe("osm", "satellite")
+# Create a synchronized 2x2 multi-panel workspace
+mm = ml.MultiMap(grid="2x2", title="Izmir Urban Atlas", theme="dark")
 
-mm.save("multimap_dashboard.html")
-print("Dashboard compiled: multimap_dashboard.html (Zero dependencies)")"""
+# Apply a basemap to every panel and add a GeoJSON layer
+mm.set_basemap("carto-dark-matter")
+mm.add_layer({"type": "FeatureCollection", "features": []})
+
+# Compile a standalone single-file interactive dashboard
+mm.to_html("multimap_dashboard.html")
+print(f"Compiled {mm.panel_count} synchronized panels -> multimap_dashboard.html")""",
     },
     {
         "id": "myface2city",
@@ -161,7 +161,7 @@ print("Dashboard compiled: multimap_dashboard.html (Zero dependencies)")"""
             "10 Curated Artistic Presets (Cyberpunk 2077, Blueprint, Neon, Vintage)",
             "Algorithmic Halftone Engraving & Variable-Radius Vector Stippling",
             "Built-in OpenStreetMap Overpass API Network Client",
-            "Scalable Standalone Vector SVG Poster Exporter"
+            "Scalable Standalone Vector SVG Poster Exporter",
         ],
         "repl_example": """import myface2city as mfc
 
@@ -173,7 +173,7 @@ portrait = mfc.UrbanPortrait("portrait.jpg", bounds)
 osm_network = mfc.fetch_osm_network(bounds)
 styled_art = portrait.process_geojson(osm_network, palette="Cyberpunk 2077")
 mfc.export_svg(styled_art, "city_portrait.svg", width=1920, height=1080)
-print("Artwork generated: city_portrait.svg")"""
+print("Artwork generated: city_portrait.svg")""",
     },
     {
         "id": "ncz2geo",
@@ -205,18 +205,17 @@ print("Artwork generated: city_portrait.svg")"""
             "PlanGML Tabaka Sınıflandırma & MPYY Hiyerarşik Eşleştirme",
             "e-Plan Resmi Renk, Dolgu, Çizgi & Tarama Semboloji Atama",
             "Selective Layer Decoding with Local Indexed Caching",
-            "Emits Standards-Compliant Enriched GeoJSON Features"
+            "Emits Standards-Compliant Enriched GeoJSON Features",
         ],
         "repl_example": """import ncz2geo
 
-# Parse Netcad CAD drawing into PlanGML-classified GeoJSON
-cad_doc = ncz2geo.read("imar_plani.ncz")
-print(f"CAD File Version: {cad_doc.version} | Layers: {len(cad_doc.layers)}")
+# Decode a Netcad NCZ/NCA drawing into entities and layer metadata
+drawing = ncz2geo.parse_netcad("imar_plani.ncz")
+print(f"Backend: {drawing.parser_backend} | Layers: {len(drawing.layer_names)}")
 
-# Export classified zoning features with official e-Plan symbology
-geojson_output = cad_doc.to_geojson(classify_plangml=True, assign_eplan=True)
-with open("plangml_output.geojson", "w") as f:
-    f.write(geojson_output)"""
+# Export PlanGML-classified features with official e-Plan symbology
+collection = ncz2geo.write_geojson(drawing.entities, "plangml_output.geojson")
+print(f"Wrote {len(collection['features'])} GeoJSON features")""",
     },
     {
         "id": "cad2geo",
@@ -228,7 +227,7 @@ with open("plangml_output.geojson", "w") as f:
         "color": "#3b82f6",
         "color_glow": "rgba(59, 130, 246, 0.4)",
         "gradient": "linear-gradient(135deg, #3b82f6, #06b6d4)",
-        "license": "GPL-3.0-or-later",
+        "license": "GPL-2.0-or-later",
         "docs_url": "https://geophilo.com/cad2geo/",
         "pypi_url": "https://pypi.org/project/cad2geo/",
         "github_url": "https://github.com/YusufEminoglu/cad2geo",
@@ -247,13 +246,17 @@ with open("plangml_output.geojson", "w") as f:
             "Zero-C Pure-Python Huffman / Inflate Binary CAD Decompressor",
             "Parses Points, Lines, Polylines, Text Labels, Arcs, and Hatches",
             "Coordinate Transformation (ITRF96 / TM30 / ED50 to WGS84)",
-            "Headless High-Throughput Batch Processing & CLI"
+            "Headless High-Throughput Batch Processing & CLI",
         ],
-        "repl_example": """import cad2geo
+        "repl_example": """from cad2geo import parse_netcad, write_geojson
 
-# Decompress and convert binary NCZ to GeoJSON
-features = cad2geo.convert("halihazir.ncz", target_crs="EPSG:4326")
-print(f"Converted {len(features)} spatial geometries in 3.8 ms.")"""
+# Decompress the binary NCZ stream and inspect its decoded entities
+drawing = parse_netcad("halihazir.ncz")
+print(f"Backend: {drawing.parser_backend} | Entities: {len(drawing.entities)}")
+
+# Export the decoded drawing as standards-compliant GeoJSON
+collection = write_geojson(drawing.entities, "halihazir.geojson")
+print(f"Exported {len(collection['features'])} features")""",
     },
     {
         "id": "osm2threejs",
@@ -285,16 +288,16 @@ print(f"Converted {len(features)} spatial geometries in 3.8 ms.")"""
             "Dynamic Road Ribbons, Traffic Lanes, and Street Trees",
             "Waterbody Bathymetry & Terrain Mesh Integration",
             "Exports Three.js WebGL Scene, glTF / GLB, Wavefront OBJ & 3D GeoJSON",
-            "In-Browser First-Person Walk / Fly Mode Camera Navigation"
+            "In-Browser First-Person Walk / Fly Mode Camera Navigation",
         ],
         "repl_example": """import osm2threejs as o3d
 
-# Generate 3D digital twin of Izmir Waterfront
-scene = o3d.CityBuilder(bbox=(27.13, 38.41, 27.15, 38.43))
-scene.extrude_buildings(default_height=15.0, roof_type="procedural")
-scene.add_roads(width_scale=1.2)
-scene.export_gltf("digital_twin.glb")
-print("Exported 3D WebGL Digital Twin -> digital_twin.glb")"""
+# Build a procedural 3D city model from an OSM bounding box
+city = o3d.from_bbox((27.13, 38.41, 27.15, 38.43), theme="Cyberpunk Neon")
+
+# Export the model to glTF/GLB for Three.js and other 3D engines
+o3d.export_to_glb(city, "digital_twin.glb")
+print(f"Exported {city.building_count} buildings -> digital_twin.glb")""",
     },
     {
         "id": "zero2route3d",
@@ -306,9 +309,9 @@ print("Exported 3D WebGL Digital Twin -> digital_twin.glb")"""
         "color": "#f59e0b",
         "color_glow": "rgba(245, 158, 11, 0.4)",
         "gradient": "linear-gradient(135deg, #f59e0b, #ef4444)",
-        "license": "GPL-3.0-or-later",
+        "license": "MIT",
         "docs_url": "https://geophilo.com/zero2route3d_sdk/",
-        "pypi_url": "https://pypi.org/project/zero2route3d_sdk/",
+        "pypi_url": "https://pypi.org/project/zero2route3d-sdk/",
         "github_url": "https://github.com/YusufEminoglu/zero2route3d_sdk",
         "gitlab_url": "https://gitlab.com/geospacephilo/zero2route3d_sdk",
         "pip": "pip install zero2route3d-sdk",
@@ -326,15 +329,20 @@ print("Exported 3D WebGL Digital Twin -> digital_twin.glb")"""
             "15 Distinct Multimodal Routing Profiles (Pedestrian, Cycling, Cargo, Wheelchair)",
             "DEM Terrain Slope Penalties & 3D Elevation Profiles",
             "Pareto Multi-Criteria Optimization (Time vs Slope vs Distance vs Caloric Burn)",
-            "Hidden Markov Model (HMM) Viterbi Map-Matching for GPS Traces"
+            "Hidden Markov Model (HMM) Viterbi Map-Matching for GPS Traces",
         ],
-        "repl_example": """import zero2route3d as r3d
+        "repl_example": """from zero2route3d import solve_3d_route
 
-# Calculate 3D topographic route with metabolic energy expenditure
-route = r3d.Router(dem="izmir_dem.tif")
-result = route.find_path(origin=(38.41, 27.13), destination=(38.43, 27.16), profile="pedestrian")
+# Solve a 3D least-cost pedestrian route over a road network
+route = solve_3d_route(
+    origin=(27.13, 38.41),
+    destination=(27.16, 38.43),
+    network="izmir_network.geojson",
+    profile="adult",
+)
 
-print(f"Distance: {result.distance_m:.1f} m | Caloric Burn: {result.calories_kcal:.1f} kcal | Ascent: {result.ascent_m:.1f} m")"""
+stats = route.statistics
+print(f"Distance: {stats.total_distance_m:.0f} m | Calories: {stats.total_calories_kcal:.1f} kcal | Ascent: {stats.elevation_gain_m:.1f} m")""",
     },
     {
         "id": "planx",
@@ -346,9 +354,9 @@ print(f"Distance: {result.distance_m:.1f} m | Caloric Burn: {result.calories_kca
         "color": "#10b981",
         "color_glow": "rgba(16, 185, 129, 0.4)",
         "gradient": "linear-gradient(135deg, #10b981, #3b82f6)",
-        "license": "GPL-3.0-or-later",
+        "license": "MIT",
         "docs_url": "https://geophilo.com/planx_sdk/",
-        "pypi_url": "https://pypi.org/project/planx_sdk/",
+        "pypi_url": "https://pypi.org/project/planx-sdk/",
         "github_url": "https://github.com/YusufEminoglu/planx_sdk",
         "gitlab_url": "https://gitlab.com/geospacephilo/planx_sdk",
         "pip": "pip install planx-sdk",
@@ -366,22 +374,31 @@ print(f"Distance: {result.distance_m:.1f} m | Caloric Burn: {result.calories_kca
             "28 Urban Resilience, Hazard Susceptibility & Climate Stress Indices",
             "Spatial Cellular Automata Urban Growth Simulation",
             "Isochronic 15-Minute City Walkability & Spatial Justice Metrics",
-            "Unified Spatial Planning Data Schema for Turkey & Global Cities"
+            "Unified Spatial Planning Data Schema for Turkey & Global Cities",
         ],
-        "repl_example": """import planx_sdk as px
+        "repl_example": """import numpy as np
+from planx.suitability.mcda import topsis_method
 
-# Run Spatial TOPSIS Multi-Criteria Site Selection
-matrix = px.mcda.DecisionMatrix(criteria=["slope", "access", "flood_risk"], weights=[0.4, 0.4, 0.2])
-ranking = matrix.topsis(beneficial=[False, True, False])
-print("Optimal Planning Zones Ranked:", ranking[:5])"""
-    }
+# Rank candidate planning zones with weighted TOPSIS
+matrix = np.array([[0.8, 0.4, 0.2], [0.6, 0.9, 0.3], [0.7, 0.5, 0.1]])
+weights = np.array([0.4, 0.4, 0.2])
+scores, ranks = topsis_method(matrix, weights, benefit_criteria=np.array([True, True, False]))
+
+print("TOPSIS scores:", scores.round(3), "| ranks:", ranks)""",
+    },
 ]
 
 # Global Country Geographic Distribution Estimates for Python GIS Developer Traffic
 GLOBAL_COUNTRIES = [
     {"iso": "US", "name": "United States", "flag": "🇺🇸", "region": "North America", "share": 28.5},
     {"iso": "DE", "name": "Germany", "flag": "🇩🇪", "region": "Western Europe", "share": 14.2},
-    {"iso": "TR", "name": "Turkey", "flag": "🇹🇷", "region": "Eastern Europe & Middle East", "share": 12.8},
+    {
+        "iso": "TR",
+        "name": "Turkey",
+        "flag": "🇹🇷",
+        "region": "Eastern Europe & Middle East",
+        "share": 12.8,
+    },
     {"iso": "GB", "name": "United Kingdom", "flag": "🇬🇧", "region": "Western Europe", "share": 8.6},
     {"iso": "FR", "name": "France", "flag": "🇫🇷", "region": "Western Europe", "share": 6.4},
     {"iso": "BR", "name": "Brazil", "flag": "🇧🇷", "region": "Latin America", "share": 5.1},
@@ -392,7 +409,7 @@ GLOBAL_COUNTRIES = [
     {"iso": "CA", "name": "Canada", "flag": "🇨🇦", "region": "North America", "share": 2.9},
     {"iso": "AU", "name": "Australia", "flag": "🇦🇺", "region": "Asia-Pacific", "share": 2.5},
     {"iso": "JP", "name": "Japan", "flag": "🇯🇵", "region": "Asia-Pacific", "share": 2.1},
-    {"iso": "KR", "name": "South Korea", "flag": "🇰🇷", "region": "Asia-Pacific", "share": 1.7}
+    {"iso": "KR", "name": "South Korea", "flag": "🇰🇷", "region": "Asia-Pacific", "share": 1.7},
 ]
 
 print("=" * 80)
@@ -418,11 +435,7 @@ total_stars = 0
 total_forks = 0
 total_issues = 0
 
-today_snapshot = {
-    "date": today_str,
-    "timestamp": now_iso,
-    "packages": {}
-}
+today_snapshot = {"date": today_str, "timestamp": now_iso, "packages": {}}
 
 for item in SDK_REGISTRY:
     pypi_name = item["pypi"]
@@ -437,24 +450,29 @@ for item in SDK_REGISTRY:
     pypi_size_kb = 0.0
     upload_date = "2026-08-25"
     try:
-        req = urllib.request.Request(f"https://pypi.org/pypi/{pypi_name}/json", headers={"User-Agent": "Mozilla/5.0"})
+        req = urllib.request.Request(
+            f"https://pypi.org/pypi/{pypi_name}/json", headers={"User-Agent": "Mozilla/5.0"}
+        )
         with urllib.request.urlopen(req, timeout=10) as r:
             pdata = json.loads(r.read().decode())
             pypi_ver = pdata["info"]["version"]
             summary = pdata["info"].get("summary") or summary
             requires_python = pdata["info"].get("requires_python") or requires_python
-            releases_list = sorted(list(pdata.get("releases", {}).keys()))
+            releases_list = sorted(pdata.get("releases", {}).keys())
             urls = pdata.get("urls", [])
             if urls:
                 pypi_size_kb = round(urls[0]["size"] / 1024, 1)
                 upload_date = urls[0].get("upload_time_iso_8601", "2026-08-25")[:10]
-    except Exception as e:
+    except Exception:
         pass
 
     # 2. Fetch Real PyPI Download Stats from PyPI Stats API
     d_day, d_week, d_month = 0, 0, 0
     try:
-        req2 = urllib.request.Request(f"https://pypistats.org/api/packages/{pypi_name.lower()}/recent", headers={"User-Agent": "Mozilla/5.0"})
+        req2 = urllib.request.Request(
+            f"https://pypistats.org/api/packages/{pypi_name.lower()}/recent",
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
         with urllib.request.urlopen(req2, timeout=10) as r2:
             sdata = json.loads(r2.read().decode())["data"]
             d_day = sdata.get("last_day", 0)
@@ -472,14 +490,27 @@ for item in SDK_REGISTRY:
         "cad2geo": "cad2geo_sdk",
         "osm2threejs": "osm2threejs_sdk",
         "zero2route3d": "zero2route3d_sdk",
-        "planx": "planx_sdk"
+        "planx": "planx_sdk",
     }
-    target_local_dir = os.path.join(os.path.dirname(BASE_DIR), local_dir_mapping.get(pkg_id, pypi_name))
+    target_local_dir = os.path.join(
+        os.path.dirname(BASE_DIR), local_dir_mapping.get(pkg_id, pypi_name)
+    )
     real_loc = 0
     py_files_count = 0
     if os.path.exists(target_local_dir):
-        for root, dirs, files in os.walk(target_local_dir):
-            if any(x in root for x in ['build', 'dist', '.git', '.venv', '__pycache__', '.egg-info', '.pytest_cache']):
+        for root, _dirs, files in os.walk(target_local_dir):
+            if any(
+                x in root
+                for x in [
+                    "build",
+                    "dist",
+                    ".git",
+                    ".venv",
+                    "__pycache__",
+                    ".egg-info",
+                    ".pytest_cache",
+                ]
+            ):
                 continue
             for file in files:
                 if file.endswith(".py") and not file.startswith("test_"):
@@ -487,7 +518,11 @@ for item in SDK_REGISTRY:
                     fp = os.path.join(root, file)
                     try:
                         with open(fp, "r", encoding="utf-8", errors="ignore") as pf:
-                            real_loc += sum(1 for line in pf if line.strip() and not line.strip().startswith("#"))
+                            real_loc += sum(
+                                1
+                                for line in pf
+                                if line.strip() and not line.strip().startswith("#")
+                            )
                     except Exception:
                         pass
 
@@ -495,10 +530,18 @@ for item in SDK_REGISTRY:
     gh_stars, gh_forks, gh_issues = 0, 0, 0
     created_at, updated_at = "", ""
     try:
-        res = subprocess.run([
-            "gh", "repo", "view", f"YusufEminoglu/{gh_repo}",
-            "--json", "stargazerCount,forkCount,issues,createdAt,updatedAt"
-        ], capture_output=True, text=True)
+        res = subprocess.run(
+            [
+                "gh",
+                "repo",
+                "view",
+                f"YusufEminoglu/{gh_repo}",
+                "--json",
+                "stargazerCount,forkCount,issues,createdAt,updatedAt",
+            ],
+            capture_output=True,
+            text=True,
+        )
         if res.returncode == 0:
             gh_info = json.loads(res.stdout)
             gh_stars = gh_info.get("stargazerCount", 0)
@@ -517,23 +560,25 @@ for item in SDK_REGISTRY:
     total_algorithms += item["algorithms_count"]
 
     enriched = dict(item)
-    enriched.update({
-        "version": pypi_ver,
-        "releases_count": num_releases,
-        "releases_list": releases_list,
-        "pypi_size_kb": pypi_size_kb,
-        "real_loc": real_loc,
-        "py_files_count": py_files_count,
-        "downloads_day": d_day,
-        "downloads_week": d_week,
-        "downloads_month": d_month,
-        "stars": gh_stars,
-        "forks": gh_forks,
-        "issues": gh_issues,
-        "created_at": created_at or "2026-08-25",
-        "updated_at": updated_at or upload_date,
-        "requires_python": requires_python
-    })
+    enriched.update(
+        {
+            "version": pypi_ver,
+            "releases_count": num_releases,
+            "releases_list": releases_list,
+            "pypi_size_kb": pypi_size_kb,
+            "real_loc": real_loc,
+            "py_files_count": py_files_count,
+            "downloads_day": d_day,
+            "downloads_week": d_week,
+            "downloads_month": d_month,
+            "stars": gh_stars,
+            "forks": gh_forks,
+            "issues": gh_issues,
+            "created_at": created_at or "2026-08-25",
+            "updated_at": updated_at or upload_date,
+            "requires_python": requires_python,
+        }
+    )
     enriched_sdks.append(enriched)
 
     today_snapshot["packages"][pypi_name] = {
@@ -542,7 +587,7 @@ for item in SDK_REGISTRY:
         "stars": gh_stars,
         "releases": num_releases,
         "pypi_size_kb": pypi_size_kb,
-        "real_loc": real_loc
+        "real_loc": real_loc,
     }
 
 # Save history
@@ -1422,33 +1467,39 @@ footer a:hover {{
 """
 
 for idx, s in enumerate(enriched_sdks, start=1):
-    initials = "".join([w[0].upper() for w in s["name"].replace("-sdk", "").replace("_sdk", "").split("_")])[:2]
-    dl_month_display = f"<span style='color:var(--accent-emerald);font-weight:800;'>{s['downloads_month']:,}</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span>" if s['downloads_month'] > 0 else "<span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New on PyPI</span>"
+    initials = "".join(
+        [w[0].upper() for w in s["name"].replace("-sdk", "").replace("_sdk", "").split("_")]
+    )[:2]
+    dl_month_display = (
+        f"<span style='color:var(--accent-emerald);font-weight:800;'>{s['downloads_month']:,}</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span>"
+        if s["downloads_month"] > 0
+        else "<span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New on PyPI</span>"
+    )
     HTML_CONTENT += f"""
-          <tr data-category="{s['category']}" data-search="{s['name']} {s['category']} {s['tagline']} {' '.join(s['highlights'])}" onclick="openDetailModal('{s['id']}')">
+          <tr data-category="{s["category"]}" data-search="{s["name"]} {s["category"]} {s["tagline"]} {" ".join(s["highlights"])}" onclick="openDetailModal('{s["id"]}')">
             <td style="font-weight:700;color:var(--muted);width:50px;">#{idx}</td>
             <td>
               <div class="pkg-cell">
-                <div class="pkg-icon" style="color:{s['color']};border-color:{s['color']}44;">{initials}</div>
+                <div class="pkg-icon" style="color:{s["color"]};border-color:{s["color"]}44;">{initials}</div>
                 <div>
-                  <span class="pkg-meta-name">{s['name']}</span>
-                  <span class="pkg-meta-cat">{s['category']}</span>
+                  <span class="pkg-meta-name">{s["name"]}</span>
+                  <span class="pkg-meta-cat">{s["category"]}</span>
                 </div>
               </div>
             </td>
-            <td><span class="badge-version">v{s['version']}</span></td>
+            <td><span class="badge-version">v{s["version"]}</span></td>
             <td>{dl_month_display}</td>
-            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">{s['real_loc']:,} <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
-            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">{s['pypi_size_kb']} KB</td>
-            <td style="font-weight:700;color:var(--fg-heading);">{s['algorithms_count']} tools</td>
-            <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">{s['releases_count']} builds</span></td>
-            <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">{s['license']}</span></td>
+            <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">{s["real_loc"]:,} <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">{s["pypi_size_kb"]} KB</td>
+            <td style="font-weight:700;color:var(--fg-heading);">{s["algorithms_count"]} tools</td>
+            <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">{s["releases_count"]} builds</span></td>
+            <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">{s["license"]}</span></td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
-                <a href="{s['docs_url']}" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
-                <a href="{s['pypi_url']}" target="_blank" class="action-icon-btn" title="Open PyPI Package"><i data-lucide="package" style="width:14px;height:14px;"></i></a>
-                <a href="{s['gitlab_url']}" target="_blank" class="action-icon-btn" title="Open GitLab Repository"><i data-lucide="git-pull-request" style="width:14px;height:14px;color:#fc6d26;"></i></a>
-                <a href="{s['github_url']}" target="_blank" class="action-icon-btn" title="Open GitHub Repository"><i data-lucide="github" style="width:14px;height:14px;"></i></a>
+                <a href="{s["docs_url"]}" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
+                <a href="{s["pypi_url"]}" target="_blank" class="action-icon-btn" title="Open PyPI Package"><i data-lucide="package" style="width:14px;height:14px;"></i></a>
+                <a href="{s["gitlab_url"]}" target="_blank" class="action-icon-btn" title="Open GitLab Repository"><i data-lucide="git-pull-request" style="width:14px;height:14px;color:#fc6d26;"></i></a>
+                <a href="{s["github_url"]}" target="_blank" class="action-icon-btn" title="Open GitHub Repository"><i data-lucide="github" style="width:14px;height:14px;"></i></a>
               </div>
             </td>
           </tr>
@@ -1487,7 +1538,10 @@ HTML_CONTENT += f"""
       </p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:1rem;">
-        {"".join([f'''
+        {
+    "".join(
+        [
+            f'''
         <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1rem;display:flex;align-items:center;justify-content:space-between;">
           <div style="display:flex;align-items:center;gap:0.75rem;">
             <span style="font-size:1.4rem;">{c["flag"]}</span>
@@ -1498,7 +1552,11 @@ HTML_CONTENT += f"""
           </div>
           <span style="font-family:'Fira Code';font-size:0.9rem;font-weight:700;color:var(--accent-cyan);">{c["share"]}%</span>
         </div>
-        ''' for c in GLOBAL_COUNTRIES])}
+        '''
+            for c in GLOBAL_COUNTRIES
+        ]
+    )
+}
       </div>
     </div>
   </div>
@@ -1506,14 +1564,17 @@ HTML_CONTENT += f"""
   <!-- TAB 5: Forensic Quality & Benchmarks -->
   <div class="tab-pane" id="pane-forensics">
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:1.5rem;margin-bottom:2.5rem;">
-      {"".join([f'''
+      {
+    "".join(
+        [
+            f'''
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.6rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem;">
           <h3 style="font-family:'Plus Jakarta Sans';font-size:1.15rem;font-weight:800;color:var(--fg-heading);">{s["name"]}</h3>
           <span class="badge-version">v{s["version"]}</span>
         </div>
         <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1.2rem;">{s["tagline"]}</div>
-        
+
         <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.84rem;">
           <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:0.4rem;">
             <span style="color:var(--muted);">Execution Speed:</span>
@@ -1533,7 +1594,11 @@ HTML_CONTENT += f"""
           </div>
         </div>
       </div>
-      ''' for s in enriched_sdks])}
+      '''
+            for s in enriched_sdks
+        ]
+    )
+}
     </div>
   </div>
 
@@ -1563,7 +1628,14 @@ HTML_CONTENT += f"""
     </div>
 
     <div class="filter-pills" style="margin-bottom:1.2rem;">
-      {"".join([f'<button class="pill-btn {"active" if idx==0 else ""}" onclick="loadReplSnippet(\'{s["id"]}\')">{s["name"]}</button>' for idx, s in enumerate(enriched_sdks)])}
+      {
+    "".join(
+        [
+            f'<button class="pill-btn {"active" if idx == 0 else ""}" onclick="loadReplSnippet(\'{s["id"]}\')">{s["name"]}</button>'
+            for idx, s in enumerate(enriched_sdks)
+        ]
+    )
+}
     </div>
 
     <div class="repl-container">
@@ -1590,7 +1662,14 @@ HTML_CONTENT += f"""
     <p style="color:var(--muted);font-size:0.92rem;">Select the Python SDKs you need to generate a combined <code>pip install</code> command for your virtual environment or Jupyter notebook:</p>
 
     <div class="check-matrix" id="checkMatrix">
-      {"".join([f'<label class="check-item"><input type="checkbox" value="{s["pypi"]}" checked> {s["pypi"]}</label>' for s in enriched_sdks])}
+      {
+    "".join(
+        [
+            f'<label class="check-item"><input type="checkbox" value="{s["pypi"]}" checked> {s["pypi"]}</label>'
+            for s in enriched_sdks
+        ]
+    )
+}
     </div>
 
     <div class="combined-pip-out">
@@ -2066,7 +2145,7 @@ function openDetailModal(sdkId) {{
 
   const highlightsList = sdk.highlights.map(h => '<li><i data-lucide="check-circle" style="width:15px;height:15px;color:#10b981;flex-shrink:0;"></i> <span>' + h + '</span></li>').join("");
 
-  modalContent.innerHTML = 
+  modalContent.innerHTML =
     '<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">' +
       '<div style="width:52px;height:52px;border-radius:14px;background:var(--bg);border:2px solid ' + sdk.color + ';display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.4rem;color:' + sdk.color + ';">' +
         sdk.name.substring(0, 2).toUpperCase() +
@@ -2145,4 +2224,6 @@ function copyCombinedPip() {{
 with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
     f.write(HTML_CONTENT)
 
-print(f"\n[DONE] Elite Governance & Telemetry Studio compiled successfully at {OUTPUT_HTML} ({len(HTML_CONTENT):,} bytes)")
+print(
+    f"\n[DONE] Elite Governance & Telemetry Studio compiled successfully at {OUTPUT_HTML} ({len(HTML_CONTENT):,} bytes)"
+)
