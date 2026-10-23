@@ -203,7 +203,7 @@
   },
   {
     "date": "2026-10-23",
-    "timestamp": "2026-10-23T02:22:15.734282+00:00",
+    "timestamp": "2026-10-23T02:32:00.998349+00:00",
     "packages": {
       "geoai2analytics-sdk": {
         "version": "0.12.1",
@@ -259,7 +259,7 @@
         "stars": 0,
         "releases": 3,
         "pypi_size_kb": 162.2,
-        "real_loc": 12173
+        "real_loc": 12329
       },
       "planx-sdk": {
         "version": "2.27.1",
@@ -267,7 +267,7 @@
         "stars": 0,
         "releases": 38,
         "pypi_size_kb": 321.0,
-        "real_loc": 28520
+        "real_loc": 28643
       }
     }
   }
