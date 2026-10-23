@@ -195,9 +195,10 @@ Snapshots are ordered chronologically and capped at 90 entries.
 `main`):
 
 1. Checks out the repository and installs Python 3.13.
-2. Runs `python generate_pypi_hub.py`.
-3. Commits `docs/index.html` when telemetry changed.
-4. Uploads `docs/` as a GitHub Pages artifact and deploys it.
+2. Installs the pinned `ruff` and `pytest` versions and runs the lint/format/test gate.
+3. Runs `python generate_pypi_hub.py`.
+4. Commits `docs/index.html` when telemetry changed.
+5. Uploads `docs/` as a GitHub Pages artifact and deploys it.
 
 No secrets are required. GitHub statistics rely on the workflow token; local runs can
 use the `gh` CLI for richer data.
