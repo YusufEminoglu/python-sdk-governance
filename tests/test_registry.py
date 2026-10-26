@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import ast
 import json
+import re
 from datetime import date
 from pathlib import Path
 
@@ -32,6 +33,7 @@ REQUIRED_KEYS = {
     "pypi_url",
     "github_url",
     "gitlab_url",
+    "doi",
     "pip",
     "algorithms_count",
     "highlights",
@@ -160,3 +162,10 @@ def test_history_does_not_exceed_retention_window() -> None:
     """The generator keeps at most 90 daily snapshots."""
     records = json.loads(HISTORY.read_text(encoding="utf-8"))
     assert len(records) <= 90
+
+
+def test_dois_are_unique_zenodo_dois(registry: list[dict[str, object]]) -> None:
+    """Each SDK cites its own Zenodo concept DOI."""
+    dois = [str(entry["doi"]) for entry in registry]
+    assert len(set(dois)) == len(dois)
+    assert all(re.fullmatch(r"10\.5281/zenodo\.\d+", doi) for doi in dois)

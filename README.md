@@ -35,6 +35,7 @@ The generated page is a zero-backend HTML application that ships with:
 | **Quality & Benchmarks** | Coverage, memory, throughput, CI status and security audit matrix. |
 | **Neural Architecture** | Interactive HTML5 Canvas topology of the ecosystem data flow. |
 | **Developer REPL Studio** | Copy-ready, syntax-checked code samples for every SDK. |
+| **Cite & DOI** | Zenodo DOI badges plus APA and BibTeX citations for every SDK. |
 
 Everything is emitted to `docs/`, which is deployed directly by GitHub Pages. No
 database, server, or client-side build step is involved.
