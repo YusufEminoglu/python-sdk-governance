@@ -32,7 +32,6 @@ The generated page is a zero-backend HTML application that ships with:
 | **Executive Cockpit** | KPI cards (LOC, downloads, algorithms, wheel size, releases) and four Chart.js visualizations. |
 | **Portfolio Telemetry** | Sortable, searchable package table with per-package drill-down, license, version and action links. |
 | **Econometric Forecasting** | Bass diffusion and Gompertz S-curve projections of ecosystem adoption through 2027. |
-| **Global Footprint** | Estimated country-level developer traffic shares and regional breakdowns. |
 | **Quality & Benchmarks** | Coverage, memory, throughput, CI status and security audit matrix. |
 | **Neural Architecture** | Interactive HTML5 Canvas topology of the ecosystem data flow. |
 | **Developer REPL Studio** | Copy-ready, syntax-checked code samples for every SDK. |
@@ -151,9 +150,6 @@ metadata. Each entry must provide:
 | `highlights` | Bullet list shown in the detail modal. |
 | `repl_example` | Valid Python snippet rendered in the REPL tab. |
 
-`GLOBAL_COUNTRIES` holds the estimated traffic distribution; its `share` values must
-sum to 100.
-
 To add a new SDK:
 
 1. Append a complete entry to `SDK_REGISTRY`.
@@ -225,7 +221,6 @@ module with `ast` so tests remain fast and work offline. It verifies:
 - required registry fields, install commands and URL conventions;
 - registry licenses against the expected upstream values;
 - that every REPL snippet is syntactically valid Python;
-- country shares sum to 100;
 - `sdk_history.json` structure, ordering and retention limit.
 
 ---

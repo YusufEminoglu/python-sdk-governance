@@ -9,11 +9,10 @@ Comprehensive Elite Studio Features:
 2. 6 Tab Multi-Channel Governance Navigation:
    - Tab 1: Executive KPI & Live Registry
    - Tab 2: Interactive Econometric Forecasting (Bass Diffusion & Gompertz S-Curves to 2027)
-   - Tab 3: Global Geospatial Traffic & Country Footprint
-   - Tab 4: Forensic Quality, Memory Benchmarks & Security Audit
-   - Tab 5: Interactive Neural Architecture & Data Flow Topology (HTML5 Canvas)
-   - Tab 6: Interactive Developer REPL Sandbox & Code Simulator
-   - Tab 7: Unified Multi-Installer & Academic BibTeX Citation Lab
+   - Tab 3: Forensic Quality, Memory Benchmarks & Security Audit
+   - Tab 4: Interactive Neural Architecture & Data Flow Topology (HTML5 Canvas)
+   - Tab 5: Interactive Developer REPL Sandbox & Code Simulator
+   - Tab 6: Unified Multi-Installer & Academic BibTeX Citation Lab
 3. Full Chart.js Visualizations (Multi-axis Bar, Line, Radar, Doughnut)
 4. Sortable DataTables with CSV / JSON / PDF Export
 5. Modal Deep Drill-Down with Full Algorithm Invertories & Formulas
@@ -388,30 +387,6 @@ scores, ranks = topsis_method(matrix, weights, benefit_criteria=np.array([True, 
 
 print("TOPSIS scores:", scores.round(3), "| ranks:", ranks)""",
     },
-]
-
-# Global Country Geographic Distribution Estimates for Python GIS Developer Traffic
-GLOBAL_COUNTRIES = [
-    {"iso": "US", "name": "United States", "flag": "🇺🇸", "region": "North America", "share": 28.5},
-    {"iso": "DE", "name": "Germany", "flag": "🇩🇪", "region": "Western Europe", "share": 14.2},
-    {
-        "iso": "TR",
-        "name": "Turkey",
-        "flag": "🇹🇷",
-        "region": "Eastern Europe & Middle East",
-        "share": 12.8,
-    },
-    {"iso": "GB", "name": "United Kingdom", "flag": "🇬🇧", "region": "Western Europe", "share": 8.6},
-    {"iso": "FR", "name": "France", "flag": "🇫🇷", "region": "Western Europe", "share": 6.4},
-    {"iso": "BR", "name": "Brazil", "flag": "🇧🇷", "region": "Latin America", "share": 5.1},
-    {"iso": "IN", "name": "India", "flag": "🇮🇳", "region": "Asia-Pacific", "share": 4.9},
-    {"iso": "IT", "name": "Italy", "flag": "🇮🇹", "region": "Western Europe", "share": 3.8},
-    {"iso": "NL", "name": "Netherlands", "flag": "🇳🇱", "region": "Western Europe", "share": 3.4},
-    {"iso": "ES", "name": "Spain", "flag": "🇪🇸", "region": "Western Europe", "share": 3.1},
-    {"iso": "CA", "name": "Canada", "flag": "🇨🇦", "region": "North America", "share": 2.9},
-    {"iso": "AU", "name": "Australia", "flag": "🇦🇺", "region": "Asia-Pacific", "share": 2.5},
-    {"iso": "JP", "name": "Japan", "flag": "🇯🇵", "region": "Asia-Pacific", "share": 2.1},
-    {"iso": "KR", "name": "South Korea", "flag": "🇰🇷", "region": "Asia-Pacific", "share": 1.7},
 ]
 
 print("=" * 80)
@@ -1384,7 +1359,6 @@ footer a:hover {{
     <button class="nav-tab-btn active" data-tab="cockpit"><i data-lucide="layout-dashboard"></i> Executive Cockpit</button>
     <button class="nav-tab-btn" data-tab="registry"><i data-lucide="table"></i> Portfolio Telemetry</button>
     <button class="nav-tab-btn" data-tab="forecasting"><i data-lucide="trending-up"></i> Econometric Forecasting</button>
-    <button class="nav-tab-btn" data-tab="geography"><i data-lucide="globe"></i> Global Footprint</button>
     <button class="nav-tab-btn" data-tab="forensics"><i data-lucide="shield-check"></i> Quality &amp; Benchmarks</button>
     <button class="nav-tab-btn" data-tab="topology"><i data-lucide="network"></i> Neural Architecture</button>
     <button class="nav-tab-btn" data-tab="repl"><i data-lucide="terminal"></i> Developer REPL Studio</button>
@@ -1568,40 +1542,6 @@ HTML_CONTENT += f"""
 
       <div class="chart-container" style="height:320px;">
         <canvas id="bassChart"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 4: Global Geospatial Footprint -->
-  <div class="tab-pane" id="pane-geography">
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:2rem;margin-bottom:2.5rem;">
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.6rem;font-weight:800;color:var(--fg-heading);margin-bottom:0.4rem;">
-        🌐 Global Developer &amp; Research Community Footprint
-      </h2>
-      <p style="color:var(--muted);font-size:0.95rem;margin-bottom:1.8rem;">
-        Geographic distribution of data science, urban planning, and academic installations across international developer hubs:
-      </p>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:1rem;">
-        {
-    "".join(
-        [
-            f'''
-        <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1rem;display:flex;align-items:center;justify-content:space-between;">
-          <div style="display:flex;align-items:center;gap:0.75rem;">
-            <span style="font-size:1.4rem;">{c["flag"]}</span>
-            <div>
-              <div style="font-weight:700;color:var(--fg-heading);font-size:0.9rem;">{c["name"]}</div>
-              <div style="font-size:0.75rem;color:var(--muted);">{c["region"]}</div>
-            </div>
-          </div>
-          <span style="font-family:'Fira Code';font-size:0.9rem;font-weight:700;color:var(--accent-cyan);">{c["share"]}%</span>
-        </div>
-        '''
-            for c in GLOBAL_COUNTRIES
-        ]
-    )
-}
       </div>
     </div>
   </div>
