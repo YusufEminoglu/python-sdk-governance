@@ -32,7 +32,6 @@ REQUIRED_KEYS = {
     "docs_url",
     "pypi_url",
     "github_url",
-    "gitlab_url",
     "doi",
     "pip",
     "algorithms_count",
@@ -119,7 +118,6 @@ def test_install_and_url_fields_are_consistent(registry: list[dict[str, object]]
         assert entry["pypi_url"] == f"https://pypi.org/project/{pypi_name}/"
         assert entry["docs_url"].startswith("https://")
         assert entry["github_url"].startswith("https://github.com/")
-        assert entry["gitlab_url"].startswith("https://gitlab.com/")
 
 
 def test_licenses_match_upstream_packages(registry: list[dict[str, object]]) -> None:

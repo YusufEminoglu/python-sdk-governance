@@ -58,7 +58,6 @@ SDK_REGISTRY = [
         "docs_url": "https://geophilo.com/geoai2analytics-sdk/",
         "pypi_url": "https://pypi.org/project/geoai2analytics-sdk/",
         "github_url": "https://github.com/YusufEminoglu/geoai2analytics-sdk",
-        "gitlab_url": "https://gitlab.com/geospacephilo/geoai2analytics-sdk",
         "doi": "10.5281/zenodo.23677244",
         "pip": "pip install geoai2analytics-sdk",
         "algorithms_count": 81,
@@ -103,7 +102,6 @@ print(f"Moran's I: {result.I:.4f} (p-value: {result.p_value:.5f})")""",
         "docs_url": "https://geophilo.com/multilayer-sdk/",
         "pypi_url": "https://pypi.org/project/multilayer-sdk/",
         "github_url": "https://github.com/YusufEminoglu/multilayer-sdk",
-        "gitlab_url": "https://gitlab.com/geospacephilo/multilayer-sdk",
         "doi": "10.5281/zenodo.23677246",
         "pip": "pip install multilayer-sdk",
         "algorithms_count": 14,
@@ -150,7 +148,6 @@ print(f"Compiled {mm.panel_count} synchronized panels -> multimap_dashboard.html
         "docs_url": "https://geophilo.com/myface2city/",
         "pypi_url": "https://pypi.org/project/myface2city/",
         "github_url": "https://github.com/YusufEminoglu/MyFace2City",
-        "gitlab_url": "https://gitlab.com/geospacephilo/MyFace2City",
         "doi": "10.5281/zenodo.23677249",
         "pip": "pip install myface2city",
         "algorithms_count": 12,
@@ -195,7 +192,6 @@ print("Artwork generated: city_portrait.svg")""",
         "docs_url": "https://geophilo.com/NCZ2Geo/",
         "pypi_url": "https://pypi.org/project/NCZ2Geo/",
         "github_url": "https://github.com/YusufEminoglu/NCZ2Geo",
-        "gitlab_url": "https://gitlab.com/geospacephilo/NCZ2Geo",
         "doi": "10.5281/zenodo.23677241",
         "pip": "pip install NCZ2Geo",
         "algorithms_count": 16,
@@ -238,7 +234,6 @@ print(f"Wrote {len(collection['features'])} GeoJSON features")""",
         "docs_url": "https://geophilo.com/cad2geo/",
         "pypi_url": "https://pypi.org/project/cad2geo/",
         "github_url": "https://github.com/YusufEminoglu/cad2geo",
-        "gitlab_url": "https://gitlab.com/geospacephilo/cad2geo",
         "doi": "10.5281/zenodo.23677239",
         "pip": "pip install cad2geo",
         "algorithms_count": 15,
@@ -280,7 +275,6 @@ print(f"Exported {len(collection['features'])} features")""",
         "docs_url": "https://geophilo.com/osm2threejs/",
         "pypi_url": "https://pypi.org/project/osm2threejs/",
         "github_url": "https://github.com/YusufEminoglu/osm2threejs",
-        "gitlab_url": "https://gitlab.com/geospacephilo/osm2threejs",
         "doi": "10.5281/zenodo.23677253",
         "pip": "pip install osm2threejs",
         "algorithms_count": 18,
@@ -322,7 +316,6 @@ print(f"Exported {city.building_count} buildings -> digital_twin.glb")""",
         "docs_url": "https://geophilo.com/zero2route3d_sdk/",
         "pypi_url": "https://pypi.org/project/zero2route3d-sdk/",
         "github_url": "https://github.com/YusufEminoglu/zero2route3d_sdk",
-        "gitlab_url": "https://gitlab.com/geospacephilo/zero2route3d_sdk",
         "doi": "10.5281/zenodo.23677255",
         "pip": "pip install zero2route3d-sdk",
         "algorithms_count": 22,
@@ -368,7 +361,6 @@ print(f"Distance: {stats.total_distance_m:.0f} m | Calories: {stats.total_calori
         "docs_url": "https://geophilo.com/planx_sdk/",
         "pypi_url": "https://pypi.org/project/planx-sdk/",
         "github_url": "https://github.com/YusufEminoglu/planx_sdk",
-        "gitlab_url": "https://gitlab.com/geospacephilo/planx_sdk",
         "doi": "10.5281/zenodo.20753169",
         "pip": "pip install planx-sdk",
         "algorithms_count": 42,
@@ -1391,7 +1383,7 @@ footer a:hover {{
   </a>
   <div class="top-actions">
     <a href="https://geophilo.com" target="_blank" class="top-btn primary" style="background:#1f9b8e;border-color:#15756a;"><i data-lucide="globe" style="width:14px;height:14px;"></i> GEOPHILO Studio</a>
-    <a href="https://gitlab.com/geospacephilo" target="_blank" class="top-btn"><i data-lucide="git-branch" style="width:14px;height:14px;color:#fc6d26;"></i> GitLab Profile</a>
+    <a href="https://github.com/YusufEminoglu" target="_blank" class="top-btn"><i data-lucide="github" style="width:14px;height:14px;"></i> GitHub Profile</a>
     <a href="https://pypi.org/user/yusuf.eminoglu/" target="_blank" class="top-btn"><i data-lucide="package" style="width:14px;height:14px;"></i> PyPI Profile</a>
     <button id="themeToggle" class="top-btn" title="Toggle Theme"><i data-lucide="sun" id="themeIcon" style="width:14px;height:14px;"></i></button>
     <a href="#installer" class="top-btn primary"><i data-lucide="terminal" style="width:14px;height:14px;"></i> Multi-Installer</a>
@@ -1570,7 +1562,6 @@ for idx, s in enumerate(enriched_sdks, start=1):
               <div style="display:flex;gap:0.4rem;">
                 <a href="{s["docs_url"]}" target="_blank" class="action-icon-btn" title="Open Interactive Documentation"><i data-lucide="book-open" style="width:14px;height:14px;"></i></a>
                 <a href="{s["pypi_url"]}" target="_blank" class="action-icon-btn" title="Open PyPI Package"><i data-lucide="package" style="width:14px;height:14px;"></i></a>
-                <a href="{s["gitlab_url"]}" target="_blank" class="action-icon-btn" title="Open GitLab Repository"><i data-lucide="git-pull-request" style="width:14px;height:14px;color:#fc6d26;"></i></a>
                 <a href="{s["github_url"]}" target="_blank" class="action-icon-btn" title="Open GitHub Repository"><i data-lucide="github" style="width:14px;height:14px;"></i></a>
               </div>
             </td>
