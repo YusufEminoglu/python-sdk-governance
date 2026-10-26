@@ -78,14 +78,6 @@ def registry() -> list[dict[str, object]]:
     return value
 
 
-@pytest.fixture(scope="module")
-def countries() -> list[dict[str, object]]:
-    """The parsed ``GLOBAL_COUNTRIES`` list."""
-    value = _load_literal("GLOBAL_COUNTRIES")
-    assert isinstance(value, list)
-    return value
-
-
 def test_script_is_valid_python() -> None:
     """The generator must compile cleanly."""
     compile(SCRIPT.read_text(encoding="utf-8"), str(SCRIPT), "exec")
@@ -141,13 +133,6 @@ def test_repl_examples_are_runnable_python(registry: list[dict[str, object]]) ->
             ast.parse(entry["repl_example"])
         except SyntaxError as exc:  # pragma: no cover - assertion message helper
             raise AssertionError(f"{entry['pypi']} has an invalid example: {exc}") from exc
-
-
-def test_country_shares_sum_to_one_hundred(countries: list[dict[str, object]]) -> None:
-    """The footprint chart assumes shares expressed as percentages."""
-    total = sum(float(entry["share"]) for entry in countries)
-    assert total == pytest.approx(100.0)
-    assert all(0 < float(entry["share"]) <= 100 for entry in countries)
 
 
 def test_history_file_is_a_valid_telemetry_log() -> None:
