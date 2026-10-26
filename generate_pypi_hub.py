@@ -12,13 +12,15 @@ Comprehensive Elite Studio Features:
    - Tab 3: Forensic Quality, Memory Benchmarks & Security Audit
    - Tab 4: Interactive Neural Architecture & Data Flow Topology (HTML5 Canvas)
    - Tab 5: Interactive Developer REPL Sandbox & Code Simulator
-   - Tab 6: Unified Multi-Installer & Academic BibTeX Citation Lab
+   - Tab 6: Cite & DOI (Zenodo DOIs, APA and BibTeX citations)
+   - Unified Multi-Installer
 3. Full Chart.js Visualizations (Multi-axis Bar, Line, Radar, Doughnut)
 4. Sortable DataTables with CSV / JSON / PDF Export
 5. Modal Deep Drill-Down with Full Algorithm Invertories & Formulas
 6. Synthesized Cyberpunk / Neon Glassmorphic Dark & Light Themes
 """
 
+import html
 import json
 import os
 import subprocess
@@ -57,6 +59,7 @@ SDK_REGISTRY = [
         "pypi_url": "https://pypi.org/project/geoai2analytics-sdk/",
         "github_url": "https://github.com/YusufEminoglu/geoai2analytics-sdk",
         "gitlab_url": "https://gitlab.com/geospacephilo/geoai2analytics-sdk",
+        "doi": "10.5281/zenodo.23677244",
         "pip": "pip install geoai2analytics-sdk",
         "algorithms_count": 81,
         "pure_python": True,
@@ -101,6 +104,7 @@ print(f"Moran's I: {result.I:.4f} (p-value: {result.p_value:.5f})")""",
         "pypi_url": "https://pypi.org/project/multilayer-sdk/",
         "github_url": "https://github.com/YusufEminoglu/multilayer-sdk",
         "gitlab_url": "https://gitlab.com/geospacephilo/multilayer-sdk",
+        "doi": "10.5281/zenodo.23677246",
         "pip": "pip install multilayer-sdk",
         "algorithms_count": 14,
         "pure_python": True,
@@ -147,6 +151,7 @@ print(f"Compiled {mm.panel_count} synchronized panels -> multimap_dashboard.html
         "pypi_url": "https://pypi.org/project/myface2city/",
         "github_url": "https://github.com/YusufEminoglu/MyFace2City",
         "gitlab_url": "https://gitlab.com/geospacephilo/MyFace2City",
+        "doi": "10.5281/zenodo.23677249",
         "pip": "pip install myface2city",
         "algorithms_count": 12,
         "pure_python": True,
@@ -191,6 +196,7 @@ print("Artwork generated: city_portrait.svg")""",
         "pypi_url": "https://pypi.org/project/NCZ2Geo/",
         "github_url": "https://github.com/YusufEminoglu/NCZ2Geo",
         "gitlab_url": "https://gitlab.com/geospacephilo/NCZ2Geo",
+        "doi": "10.5281/zenodo.23677241",
         "pip": "pip install NCZ2Geo",
         "algorithms_count": 16,
         "pure_python": True,
@@ -233,6 +239,7 @@ print(f"Wrote {len(collection['features'])} GeoJSON features")""",
         "pypi_url": "https://pypi.org/project/cad2geo/",
         "github_url": "https://github.com/YusufEminoglu/cad2geo",
         "gitlab_url": "https://gitlab.com/geospacephilo/cad2geo",
+        "doi": "10.5281/zenodo.23677239",
         "pip": "pip install cad2geo",
         "algorithms_count": 15,
         "pure_python": True,
@@ -274,6 +281,7 @@ print(f"Exported {len(collection['features'])} features")""",
         "pypi_url": "https://pypi.org/project/osm2threejs/",
         "github_url": "https://github.com/YusufEminoglu/osm2threejs",
         "gitlab_url": "https://gitlab.com/geospacephilo/osm2threejs",
+        "doi": "10.5281/zenodo.23677253",
         "pip": "pip install osm2threejs",
         "algorithms_count": 18,
         "pure_python": True,
@@ -315,6 +323,7 @@ print(f"Exported {city.building_count} buildings -> digital_twin.glb")""",
         "pypi_url": "https://pypi.org/project/zero2route3d-sdk/",
         "github_url": "https://github.com/YusufEminoglu/zero2route3d_sdk",
         "gitlab_url": "https://gitlab.com/geospacephilo/zero2route3d_sdk",
+        "doi": "10.5281/zenodo.23677255",
         "pip": "pip install zero2route3d-sdk",
         "algorithms_count": 22,
         "pure_python": True,
@@ -360,6 +369,7 @@ print(f"Distance: {stats.total_distance_m:.0f} m | Calories: {stats.total_calori
         "pypi_url": "https://pypi.org/project/planx-sdk/",
         "github_url": "https://github.com/YusufEminoglu/planx_sdk",
         "gitlab_url": "https://gitlab.com/geospacephilo/planx_sdk",
+        "doi": "10.5281/zenodo.20753169",
         "pip": "pip install planx-sdk",
         "algorithms_count": 42,
         "pure_python": True,
@@ -388,6 +398,30 @@ scores, ranks = topsis_method(matrix, weights, benefit_criteria=np.array([True, 
 print("TOPSIS scores:", scores.round(3), "| ranks:", ranks)""",
     },
 ]
+
+
+def bibtex_entry(sdk: dict) -> str:
+    """BibTeX ``@software`` record for an SDK, citing its Zenodo concept DOI."""
+    fields = [
+        ("author", r"Emino{\u{g}}lu, Yusuf"),
+        ("title", "{" + sdk["pypi"] + "}"),
+        ("year", "2026"),
+        ("publisher", "Zenodo"),
+        ("version", sdk["version"]),
+        ("doi", sdk["doi"]),
+        ("url", "https://doi.org/" + sdk["doi"]),
+    ]
+    body = ",\n".join(f"  {key:<9} = {{{value}}}" for key, value in fields)
+    return f"@software{{eminoglu2026{sdk['id']},\n{body}\n}}"
+
+
+def apa_citation(sdk: dict) -> str:
+    """APA 7 software reference for an SDK."""
+    return (
+        f"Eminoğlu, Y. (2026). {sdk['pypi']} (Version {sdk['version']}) [Computer software]. "
+        f"Zenodo. https://doi.org/{sdk['doi']}"
+    )
+
 
 print("=" * 80)
 print("COMPILING ELITE GEOAI & SPATIAL PYTHON SDK ECOSYSTEM GOVERNANCE STUDIO")
@@ -616,6 +650,24 @@ total_weekly_downloads = sum(s["downloads_week"] for s in enriched_sdks)
 total_desktop_downloads = sum(s["downloads_desktop_month"] for s in enriched_sdks)
 total_loc_all = sum(s["real_loc"] for s in enriched_sdks)
 total_size_all = sum(s["pypi_size_kb"] for s in enriched_sdks)
+
+
+CITE_CARDS = "".join(
+    f"""
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.4rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.7rem;">
+          <h3 style="font-family:'Plus Jakarta Sans';font-size:1.1rem;font-weight:800;color:var(--fg-heading);">{s["pypi"]} <span class="badge-version">v{s["version"]}</span></h3>
+          <a href="https://doi.org/{s["doi"]}" target="_blank" rel="noopener"><img src="https://zenodo.org/badge/DOI/{s["doi"]}.svg" alt="DOI {s["doi"]}" height="20"></a>
+        </div>
+        <p style="font-size:0.85rem;color:var(--fg);line-height:1.5;margin-bottom:0.8rem;">{html.escape(apa_citation(s))}</p>
+        <pre id="bib-{s["id"]}" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.8rem;font-family:'Fira Code',monospace;font-size:0.75rem;overflow-x:auto;color:var(--fg);">{html.escape(bibtex_entry(s))}</pre>
+        <div style="display:flex;gap:0.5rem;margin-top:0.7rem;flex-wrap:wrap;">
+          <button class="top-btn primary" onclick="copyBlock('bib-{s["id"]}')"><i data-lucide="copy" style="width:13px;height:13px;"></i> Copy BibTeX</button>
+          <button class="top-btn" onclick="copyText('https://doi.org/{s["doi"]}')"><i data-lucide="link" style="width:13px;height:13px;"></i> Copy DOI link</button>
+        </div>
+      </div>"""
+    for s in enriched_sdks
+)
 
 # Build Master Multi-Channel UI HTML
 HTML_CONTENT = f"""<!DOCTYPE html>
@@ -1362,6 +1414,7 @@ footer a:hover {{
     <button class="nav-tab-btn" data-tab="forensics"><i data-lucide="shield-check"></i> Quality &amp; Benchmarks</button>
     <button class="nav-tab-btn" data-tab="topology"><i data-lucide="network"></i> Neural Architecture</button>
     <button class="nav-tab-btn" data-tab="repl"><i data-lucide="terminal"></i> Developer REPL Studio</button>
+    <button class="nav-tab-btn" data-tab="cite"><i data-lucide="quote"></i> Cite &amp; DOI</button>
   </div>
 
   <!-- TAB 1: Executive Cockpit -->
@@ -1638,6 +1691,19 @@ HTML_CONTENT += f"""
         </div>
         <div class="repl-terminal" id="replOutputConsole">Click "Execute Code" to simulate execution...</div>
       </div>
+    </div>
+  </div>
+
+  <!-- TAB 8: Cite & DOI -->
+  <div class="tab-pane" id="pane-cite">
+    <div style="margin-bottom:1.5rem;">
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.6rem;font-weight:800;color:var(--fg-heading);margin-bottom:0.4rem;">
+        📚 Cite the SDKs
+      </h2>
+      <p style="color:var(--muted);font-size:0.95rem;">Every release is archived on Zenodo. The DOIs below always resolve to the latest version; each version page on Zenodo also lists its own version-specific DOI.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 420px), 1fr));gap:1.2rem;">
+      {CITE_CARDS}
     </div>
   </div>
 
@@ -2122,6 +2188,11 @@ const modalContent = document.getElementById("modalContent");
 
 function copyText(str) {{
   navigator.clipboard.writeText(str).then(() => alert("Copied: " + str));
+}}
+
+function copyBlock(id) {{
+  const el = document.getElementById(id);
+  if (el) navigator.clipboard.writeText(el.textContent).then(() => alert("BibTeX copied"));
 }}
 
 function openDetailModal(sdkId) {{
