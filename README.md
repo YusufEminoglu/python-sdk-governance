@@ -143,7 +143,7 @@ metadata. Each entry must provide:
 | `category`, `tagline` | Grouping and one-line description. |
 | `color`, `color_glow`, `gradient` | Per-package visual identity. |
 | `license` | SPDX-style license identifier (must match the SDK's `pyproject.toml`). |
-| `docs_url`, `pypi_url`, `github_url`, `gitlab_url` | Outbound links. |
+| `docs_url`, `pypi_url`, `github_url` | Outbound links. |
 | `pip` | Copy-ready install command (`pip install <pypi>`). |
 | `algorithms_count` | Number of documented algorithms/engines. |
 | `pure_python`, `ci_status`, `coverage`, `benchmark_speed`, `memory_overhead` | Quality and benchmark claims. |
