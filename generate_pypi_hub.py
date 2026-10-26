@@ -24,8 +24,10 @@ import json
 import os
 import subprocess
 import sys
+import time
+import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -426,6 +428,28 @@ if os.path.exists(HISTORY_FILE):
         pass
 
 today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+
+def fetch_pypistats(path: str, attempts: int = 4) -> object:
+    """GET a pypistats.org API path, backing off on HTTP 429 rate limiting.
+
+    The API rejects bursts of requests; without a retry a rate-limited package
+    silently reads as zero downloads in the dashboard and the history log.
+    """
+    for attempt in range(attempts):
+        req = urllib.request.Request(
+            f"https://pypistats.org/api/packages/{path}", headers={"User-Agent": "Mozilla/5.0"}
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                return json.loads(resp.read().decode())["data"]
+        except urllib.error.HTTPError as exc:
+            if exc.code != 429 or attempt == attempts - 1:
+                raise
+            time.sleep(2.0 * (attempt + 1))
+    raise RuntimeError("unreachable")
+
+
 now_iso = datetime.now(timezone.utc).isoformat()
 
 enriched_sdks = []
@@ -469,15 +493,27 @@ for item in SDK_REGISTRY:
     # 2. Fetch Real PyPI Download Stats from PyPI Stats API
     d_day, d_week, d_month = 0, 0, 0
     try:
-        req2 = urllib.request.Request(
-            f"https://pypistats.org/api/packages/{pypi_name.lower()}/recent",
-            headers={"User-Agent": "Mozilla/5.0"},
+        sdata = fetch_pypistats(f"{pypi_name.lower()}/recent")
+        assert isinstance(sdata, dict)
+        d_day = sdata.get("last_day", 0)
+        d_week = sdata.get("last_week", 0)
+        d_month = sdata.get("last_month", 0)
+    except Exception:
+        pass
+
+    # 2b. Desktop installs: pip downloads that report Windows or macOS over the last
+    # 30 days. Mirrors, security scanners and CI runners dominate the raw totals
+    # (no OS reported, or Linux), so this is the closer proxy for people installing
+    # the package on their own machine.
+    d_desktop = 0
+    try:
+        system_rows = fetch_pypistats(f"{pypi_name.lower()}/system")
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
+        d_desktop = sum(
+            int(row["downloads"])
+            for row in system_rows
+            if row.get("category") in ("Windows", "Darwin") and row.get("date", "") >= cutoff
         )
-        with urllib.request.urlopen(req2, timeout=10) as r2:
-            sdata = json.loads(r2.read().decode())["data"]
-            d_day = sdata.get("last_day", 0)
-            d_week = sdata.get("last_week", 0)
-            d_month = sdata.get("last_month", 0)
     except Exception:
         pass
 
@@ -571,6 +607,7 @@ for item in SDK_REGISTRY:
             "downloads_day": d_day,
             "downloads_week": d_week,
             "downloads_month": d_month,
+            "downloads_desktop_month": d_desktop,
             "stars": gh_stars,
             "forks": gh_forks,
             "issues": gh_issues,
@@ -584,6 +621,7 @@ for item in SDK_REGISTRY:
     today_snapshot["packages"][pypi_name] = {
         "version": pypi_ver,
         "downloads_month": d_month,
+        "downloads_desktop_month": d_desktop,
         "stars": gh_stars,
         "releases": num_releases,
         "pypi_size_kb": pypi_size_kb,
@@ -600,6 +638,7 @@ with open(HISTORY_FILE, "w", encoding="utf-8") as f:
 
 total_monthly_downloads = sum(s["downloads_month"] for s in enriched_sdks)
 total_weekly_downloads = sum(s["downloads_week"] for s in enriched_sdks)
+total_desktop_downloads = sum(s["downloads_desktop_month"] for s in enriched_sdks)
 total_loc_all = sum(s["real_loc"] for s in enriched_sdks)
 total_size_all = sum(s["pypi_size_kb"] for s in enriched_sdks)
 
@@ -1365,6 +1404,11 @@ footer a:hover {{
         <div class="metric-label">Monthly Downloads (PyPI)</div>
         <div style="font-size:0.75rem;color:var(--accent-cyan);margin-top:0.3rem;font-weight:600;"><i data-lucide="trending-up" style="width:12px;height:12px;display:inline;"></i> PyPI Stats API Telemetry</div>
       </div>
+      <div class="metric-card" title="pip downloads reporting Windows or macOS in the last 30 days. Raw totals are dominated by mirrors, scanners and CI runners.">
+        <div class="metric-val">{total_desktop_downloads:,}</div>
+        <div class="metric-label">Desktop Installs / 30 days</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;font-weight:600;"><i data-lucide="monitor" style="width:12px;height:12px;display:inline;"></i> Windows + macOS pip downloads</div>
+      </div>
       <div class="metric-card">
         <div class="metric-val">{total_algorithms}+</div>
         <div class="metric-label">Spatial &amp; ML Algorithms</div>
@@ -1472,6 +1516,7 @@ for idx, s in enumerate(enriched_sdks, start=1):
     )[:2]
     dl_month_display = (
         f"<span style='color:var(--accent-emerald);font-weight:800;'>{s['downloads_month']:,}</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span>"
+        f"<div style='font-size:0.72rem;color:var(--muted);' title='Windows + macOS pip downloads, last 30 days'>{s['downloads_desktop_month']:,} desktop</div>"
         if s["downloads_month"] > 0
         else "<span style='color:var(--accent-cyan);font-size:0.8rem;font-weight:600;'>New on PyPI</span>"
     )
