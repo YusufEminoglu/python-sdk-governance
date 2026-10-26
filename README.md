@@ -84,7 +84,7 @@ pip install cad2geo
 ### Generate the dashboard
 
 ```bash
-git clone https://github.com/YusufEminoglu/pypi_sdk_governance.git
+git clone https://github.com/YusufEminoglu/python-sdk-governance.git pypi_sdk_governance
 cd pypi_sdk_governance
 
 # Regenerate docs/index.html and append today's telemetry snapshot
