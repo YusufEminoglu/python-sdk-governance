@@ -270,5 +270,83 @@
         "real_loc": 28643
       }
     }
+  },
+  {
+    "date": "2026-11-07",
+    "timestamp": "2026-11-07T00:56:42.517463+00:00",
+    "packages": {
+      "geoai2analytics-sdk": {
+        "version": "0.12.3",
+        "downloads_month": 277,
+        "downloads_desktop_month": 11,
+        "stars": 0,
+        "releases": 6,
+        "pypi_size_kb": 81.3,
+        "real_loc": 5827
+      },
+      "multilayer-sdk": {
+        "version": "0.12.3",
+        "downloads_month": 269,
+        "downloads_desktop_month": 11,
+        "stars": 0,
+        "releases": 6,
+        "pypi_size_kb": 74.1,
+        "real_loc": 5064
+      },
+      "myface2city": {
+        "version": "0.12.3",
+        "downloads_month": 256,
+        "downloads_desktop_month": 10,
+        "stars": 0,
+        "releases": 6,
+        "pypi_size_kb": 60.8,
+        "real_loc": 3534
+      },
+      "NCZ2Geo": {
+        "version": "0.13.1",
+        "downloads_month": 313,
+        "downloads_desktop_month": 28,
+        "stars": 0,
+        "releases": 5,
+        "pypi_size_kb": 135.9,
+        "real_loc": 12860
+      },
+      "cad2geo": {
+        "version": "0.12.3",
+        "downloads_month": 323,
+        "downloads_desktop_month": 44,
+        "stars": 0,
+        "releases": 6,
+        "pypi_size_kb": 86.3,
+        "real_loc": 6022
+      },
+      "osm2threejs": {
+        "version": "0.12.3",
+        "downloads_month": 306,
+        "downloads_desktop_month": 56,
+        "stars": 0,
+        "releases": 5,
+        "pypi_size_kb": 66.4,
+        "real_loc": 5666
+      },
+      "zero2route3d-sdk": {
+        "version": "0.13.1",
+        "downloads_month": 246,
+        "downloads_desktop_month": 8,
+        "stars": 0,
+        "releases": 5,
+        "pypi_size_kb": 172.7,
+        "real_loc": 12659
+      },
+      "planx-sdk": {
+        "version": "2.28.1",
+        "downloads_month": 415,
+        "downloads_desktop_month": 11,
+        "stars": 0,
+        "releases": 40,
+        "pypi_size_kb": 328.5,
+        "real_loc": 28659
+      }
+    }
   }
 ]
