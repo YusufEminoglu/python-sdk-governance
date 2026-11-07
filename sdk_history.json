@@ -273,7 +273,7 @@
   },
   {
     "date": "2026-11-07",
-    "timestamp": "2026-11-07T00:56:42.517463+00:00",
+    "timestamp": "2026-11-07T09:35:19.694592+00:00",
     "packages": {
       "geoai2analytics-sdk": {
         "version": "0.12.3",
@@ -318,12 +318,12 @@
         "stars": 0,
         "releases": 6,
         "pypi_size_kb": 86.3,
-        "real_loc": 6022
+        "real_loc": 6021
       },
       "osm2threejs": {
         "version": "0.12.3",
         "downloads_month": 306,
-        "downloads_desktop_month": 56,
+        "downloads_desktop_month": 60,
         "stars": 0,
         "releases": 5,
         "pypi_size_kb": 66.4,
