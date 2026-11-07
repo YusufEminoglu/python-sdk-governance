@@ -273,7 +273,7 @@
   },
   {
     "date": "2026-11-07",
-    "timestamp": "2026-11-07T11:15:13.631535+00:00",
+    "timestamp": "2026-11-07T11:16:11.801496+00:00",
     "packages": {
       "geoai2analytics-sdk": {
         "version": "0.12.4",
@@ -294,12 +294,12 @@
         "real_loc": 5395
       },
       "myface2city": {
-        "version": "0.12.3",
+        "version": "0.12.4",
         "downloads_month": 256,
         "downloads_desktop_month": 10,
         "stars": 0,
-        "releases": 6,
-        "pypi_size_kb": 60.8,
+        "releases": 7,
+        "pypi_size_kb": 64.6,
         "real_loc": 3774
       },
       "NCZ2Geo": {

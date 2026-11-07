@@ -770,12 +770,12 @@ footer a:hover {
         <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;font-weight:600;">Mathematical Engines</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">1032.3 KB</div>
+        <div class="metric-val">1036.1 KB</div>
         <div class="metric-label">PyPI Distribution Wheels</div>
         <div style="font-size:0.75rem;color:var(--accent-purple);margin-top:0.3rem;font-weight:600;">8 Packages Artifacts</div>
       </div>
       <div class="metric-card">
-        <div class="metric-val">86</div>
+        <div class="metric-val">87</div>
         <div class="metric-label">Total PyPI Builds &amp; Releases</div>
         <div style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.3rem;font-weight:600;">PyPI Verified Attestations</div>
       </div>
@@ -929,12 +929,12 @@ footer a:hover {
                 </div>
               </div>
             </td>
-            <td><span class="badge-version">v0.12.3</span></td>
+            <td><span class="badge-version">v0.12.4</span></td>
             <td><span style='color:var(--accent-emerald);font-weight:800;'>256</span> <span style='font-size:0.75rem;color:var(--muted);'>/mo</span><div style='font-size:0.72rem;color:var(--muted);' title='Windows + macOS pip downloads, last 30 days'>10 desktop</div></td>
             <td style="font-weight:700;color:var(--accent-emerald);font-family:'Fira Code';">3,774 <span style='font-size:0.72rem;color:var(--muted);'>LOC</span></td>
-            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">60.8 KB</td>
+            <td style="font-family:'Fira Code';font-size:0.85rem;color:var(--accent-cyan);">64.6 KB</td>
             <td style="font-weight:700;color:var(--fg-heading);">13 tools</td>
-            <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">6 builds</span></td>
+            <td><span style="font-family:'Fira Code';font-size:0.8rem;color:var(--muted);">7 builds</span></td>
             <td><span style="font-family:'Fira Code';font-size:0.75rem;color:var(--muted);">MIT</span></td>
             <td onclick="event.stopPropagation()">
               <div style="display:flex;gap:0.4rem;">
@@ -1162,7 +1162,7 @@ footer a:hover {
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.6rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem;">
           <h3 style="font-family:'Plus Jakarta Sans';font-size:1.15rem;font-weight:800;color:var(--fg-heading);">myface2city</h3>
-          <span class="badge-version">v0.12.3</span>
+          <span class="badge-version">v0.12.4</span>
         </div>
         <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1.2rem;">Turn urban street networks, building footprints, and vector maps into live optical portrait art.</div>
 
@@ -1423,16 +1423,16 @@ footer a:hover {
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.4rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.7rem;">
-          <h3 style="font-family:'Plus Jakarta Sans';font-size:1.1rem;font-weight:800;color:var(--fg-heading);">myface2city <span class="badge-version">v0.12.3</span></h3>
+          <h3 style="font-family:'Plus Jakarta Sans';font-size:1.1rem;font-weight:800;color:var(--fg-heading);">myface2city <span class="badge-version">v0.12.4</span></h3>
           <a href="https://doi.org/10.5281/zenodo.23677249" target="_blank" rel="noopener"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23677249.svg" alt="DOI 10.5281/zenodo.23677249" height="20"></a>
         </div>
-        <p style="font-size:0.85rem;color:var(--fg);line-height:1.5;margin-bottom:0.8rem;">Eminoğlu, Y. (2026). myface2city (Version 0.12.3) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23677249</p>
+        <p style="font-size:0.85rem;color:var(--fg);line-height:1.5;margin-bottom:0.8rem;">Eminoğlu, Y. (2026). myface2city (Version 0.12.4) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23677249</p>
         <pre id="bib-myface2city" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.8rem;font-family:'Fira Code',monospace;font-size:0.75rem;overflow-x:auto;color:var(--fg);">@software{eminoglu2026myface2city,
   author    = {Emino{\u{g}}lu, Yusuf},
   title     = {{myface2city}},
   year      = {2026},
   publisher = {Zenodo},
-  version   = {0.12.3},
+  version   = {0.12.4},
   doi       = {10.5281/zenodo.23677249},
   url       = {https://doi.org/10.5281/zenodo.23677249}
 }</pre>
@@ -1727,17 +1727,18 @@ const SDKS_DATA = [
       "Scalable Standalone Vector SVG Poster Exporter"
     ],
     "repl_example": "import myface2city as mfc\n\n# Bind portrait photo to geographic bounding box\nbounds = (27.10, 38.40, 27.20, 38.50)\nportrait = mfc.UrbanPortrait(\"portrait.jpg\", bounds)\n\n# Process OSM street network with Cyberpunk preset\nosm_network = mfc.fetch_osm_network(bounds)\nstyled_art = portrait.process_geojson(osm_network, palette=\"Cyberpunk 2077\")\nmfc.export_svg(styled_art, \"city_portrait.svg\", width=1920, height=1080)\nprint(\"Artwork generated: city_portrait.svg\")",
-    "version": "0.12.3",
-    "releases_count": 6,
+    "version": "0.12.4",
+    "releases_count": 7,
     "releases_list": [
       "0.1.0",
       "0.1.1",
       "0.12.0",
       "0.12.1",
       "0.12.2",
-      "0.12.3"
+      "0.12.3",
+      "0.12.4"
     ],
-    "pypi_size_kb": 60.8,
+    "pypi_size_kb": 64.6,
     "real_loc": 3774,
     "py_files_count": 34,
     "downloads_day": 0,
@@ -2160,7 +2161,7 @@ const catChart = new Chart(ctxCat, {
     labels: ["geoai2analytics-sdk", "multilayer-sdk", "myface2city", "NCZ2Geo", "cad2geo", "osm2threejs", "zero2route3d_sdk", "planx_sdk"],
     datasets: [{
       label: "PyPI Distribution Size (KB)",
-      data: [85.4, 78.6, 60.8, 140.0, 89.5, 70.4, 176.2, 331.4],
+      data: [85.4, 78.6, 64.6, 140.0, 89.5, 70.4, 176.2, 331.4],
       backgroundColor: "#06b6d4",
       borderRadius: 6
     }]
@@ -2184,7 +2185,7 @@ const releaseChart = new Chart(ctxRel, {
     labels: ["geoai2analytics-sdk", "multilayer-sdk", "myface2city", "NCZ2Geo", "cad2geo", "osm2threejs", "zero2route3d_sdk", "planx_sdk"],
     datasets: [{
       label: "Releases / Builds",
-      data: [7, 7, 6, 6, 7, 6, 6, 41],
+      data: [7, 7, 7, 6, 7, 6, 6, 41],
       backgroundColor: "#06b6d4",
       borderRadius: 6
     }]
